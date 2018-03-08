@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-02-04T00:00:00+00:00">2017/02/04</time></div><h1>Crystalのシンタックスハイライタを直していた</h1></div><div class="article-content"><script async src="//cdn.embedly.com/widgets/platform.js"></script>
+<h1>やったこと</h1>
+<h2>Crystalのシンタックスハイライトを直した</h2>
+<p><a class="embedly-card" href="https://github.com/isagalaev/highlight.js/pull/1445">Update Crystal language definition by MakeNowJust · Pull Request #1445 · isagalaev/highlight.js</a></p>
+<p><a class="embedly-card" href="https://github.com/PrismJS/prism/pull/1092">Update Crystal keywords by MakeNowJust · Pull Request #1092 · PrismJS/prism</a></p>
+<p>highlight.jsとprism.jsのCrystalのシンタックスハイライトを新しい構文に対応させておいた。具体的には、</p>
+<ul>
+<li><code>select</code>、<code>uninitialized</code>、<code>__END_LINE__</code>の3つのキーワードを追加したり、</li>
+<li><code>ifdef</code>を削除したり、</li>
+<li>ヒアドキュメントとか<code>%q{...}</code>文字列に対応させたり</li>
+</ul>
+<p>していた。</p>
+<p>CodeMirrorはちょっと面倒な気がするのでやってない。というか誰かがやってそうな気もする。</p>
+<p>あと、pygmentsにいつの間にか追加されててビビった。pygmentsはmercurialで管理されてるせいで手が出しにくなったのでやってくれる人がいるなら楽でいい。</p>
+<h2>highlight.jsに<code>console</code>のシンタックスハイライトを追加した</h2>
+<p><a class="embedly-card" href="https://github.com/isagalaev/highlight.js/pull/1444">Add a new language: shell-session (also console) by MakeNowJust · Pull Request #1444 · isagalaev/highlight.js</a></p>
+<p>完全に自分が欲しかったから作ったのだけど、あとから探したらそういうIssueが既に立っていた。</p>
+<p>結構適当だけどそこそこ動く気がする。</p>
+<h2><code>crystal tool expand</code>が<code>private</code>なメソッドとかモジュール内のマクロの展開を表示してくれないのを修正した</h2>
+<p><a class="embedly-card" href="https://github.com/crystal-lang/crystal/pull/3998">Fix <code>crystal tool expand</code> for private definitions by MakeNowJust · Pull Request #3998 · crystal-lang/crystal</a></p>
+<p>なんか一週間くらい前に作ったパッチな気がする。なんとなく公開してなかった。</p>
+<h1>やること</h1>
+<p>明日はフリフラ見るぞ。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

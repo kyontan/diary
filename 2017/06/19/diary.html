@@ -1,0 +1,17 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-06-19T00:00:00+00:00">2017/06/19</time></div><h1>Crystalを直したりしていた</h1></div><div class="article-content"><h1>やったこと</h1>
+<h2>Crystalを直した</h2>
+<p>なんか空の括弧がフォーマッタでエラーになるというissueがあったので直してみた。一応直ったのだけど、そもそも空の括弧とか書かなくね？　とRX14に言われてしまう。それはそうなんだけど、でもissueに上がるってことは書かれる可能性はあるしなぁ、とか色々思うところはある。今のところは、機械生成する場合には役に立つんじゃない、と言葉を濁しておいた。微妙な言い訳すぎる。</p>
+<p>あと3日前くらいによく分からないと言っていた挙動が直せたのでそっちもPRしておいた。型が<code>void</code>かどうかの判定に使うメソッドで、型の取得に使っているメソッドが他のところと違うから、というのが原因だった。しかしどうして<code>yield</code>かつエイリアスのときだけダメだったのかはやはりよく分からない。誰か説明してほしい。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

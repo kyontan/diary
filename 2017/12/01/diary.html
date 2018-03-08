@@ -1,0 +1,28 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-12-01T00:00:00+00:00">2017/12/01</time></div><h1>ハガレン実写を観た</h1></div><div class="article-content"><script async src="//cdn.embedly.com/widgets/platform.js"></script>
+<h1>やったこと</h1>
+<h2>ハガレン実写を観た</h2>
+<p>思っていたよりも面白かった。ストーリーの構成はいい落としどころを突いてると思う。ホムンクルス勢がコスプレっぽいのは致し方ないとして、マスタングとかヒューズはあれはあれでいいんじゃないかなと最後の方は感じていた。ディーンフジオカいいじゃん。</p>
+<p>あと、個人的には最後にメインキャストが大きく表示されたのが良かった。あれがすごい好きなんだけど、日本の映画だとあまり見ない気がする。</p>
+<p>色々と思うところはあるのだけど、結論としては「あーハガレン読みたいな」ってなる映画だったし、そういう意味では成功してるんじゃないかと思う。</p>
+<h2><code>foo</code>が変数のときに<code>foo(+1)</code>が<code>foo + 1</code>とパースされるのを修正</h2>
+<p><a href="https://github.com/crystal-lang/crystal/pull/5336" class="embedly-card">https://github.com/crystal-lang/crystal/pull/5336</a></p>
+<p>完全に面白バグ。パーサーのコード読みながらまさかなぁと思って試してみると、そのまさかでバグっていて、とりあえず直した。実は元々直したかったのは、</p>
+<pre><code class="hljs language-crystal">foo = <span class="hljs-number">1</span>
+<span class="hljs-keyword">case</span> <span class="hljs-number">1</span>
+<span class="hljs-keyword">when</span> foo <span class="hljs-keyword">then</span> <span class="hljs-number">1</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>の<code>when foo then</code>の<code>foo</code>がメソッド呼び出しになってしまう方だったりする。<code>when foo; 1</code>とかだとこうはならない。この辺の挙動は謎が多い‥。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

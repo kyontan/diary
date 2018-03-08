@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-04-02T00:00:00+00:00">2017/04/02</time></div><h1>CoconutでQuineを書いた</h1></div><div class="article-content"><h1>やったこと</h1>
+<h2>CoconutでQuineを書いた</h2>
+<p>書いたのは昨日なのだけど、疲れていたので説明するのを忘れていた。</p>
+<p><a href="https://github.com/evhub/coconut">Coconut</a>というのはAltPythonみたいな感じの言語で、Pythonにパイプ演算子とかその他関数型っぽい物を追加したやつ。Pythonで実装されているらしい。</p>
+<p>Hacker Newsを「programming language」で検索していたら発見した。</p>
+<p>Quineはパイプ演算子を使ってそれっぽくしてみただけ。</p>
+<p><a class="embedly-card" href="https://github.com/MakeNowJust/quine/blob/ddf86151be8388b7f22291eae7bf34044132fa85/quine.coco">quine/quine.coco at ddf86151be8388b7f22291eae7bf34044132fa85 · MakeNowJust/quine</a></p>
+<p>実行はこんな感じ。</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta">$</span><span class="bash"> pip install coconut</span>
+<span class="hljs-meta">$</span><span class="bash"> coconut -qr quine.coco | diff quine.coco -</span>
+</code></pre>
+<p>面白いけど使わないなぁ、という印象。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

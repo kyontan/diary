@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2018-02-14T00:00:00+00:00">2018/02/14</time></div><h1>仕事をしていた</h1></div><div class="article-content"><script async src="//cdn.embedly.com/widgets/platform.js"></script>
+<h1>やったこと</h1>
+<h2>仕事をしていた</h2>
+<p>スクショを撮りつつ文章を書いていくのは非常に疲れる。</p>
+<p>まあでも段々と慣れてきた。</p>
+<h2>specのCtrl-Cの奴に関して</h2>
+<p><a href="https://github.com/crystal-lang/crystal/pull/5719" class="embedly-card">https://github.com/crystal-lang/crystal/pull/5719</a></p>
+<p>なんでstraight-shootaがそんなにこだわるのかよく分からない。意見の相違という奴だろう。ただ、実装者としては単純な修正でできることではないのであまり受け入れたくない。</p>
+<p>恐らく現状がゴミであるという点については満場一致だと思うので、とりあえずマージしてほしい、というのが希望。</p>
+<p>少し自分の考えを整理したい。自分の考えの基本は、</p>
+<ul>
+<li>Ctrl-Cで中断するのはエラーとして扱いたい。</li>
+</ul>
+<p>これはなぜかというと、</p>
+<ol>
+<li>Ctrl-Cは例外だという確固たる意思</li>
+<li>本来全て実行するつもりだったのに途中で中断したのを、specが成功したと見間違えたくない。</li>
+</ol>
+<p>という二つの部分からなる。前者の意識をstraight-shootaと擦り合わせるのは多分不可能だと思う。自分の考えはRubyがベースになっていて、Ctrl-CでInterruptedが実行コンテキストに突っ込まれるイメージがあるのだけど、多分これは普通じゃない。というか、仮にそうだとしてもminitestは現状のCrystalに近い感じなので、あんまし説得力がない。</p>
+<p>なので後者を主張したいというか、そもそもボクが反発してるのはこの理由からだから、その方針でやっていきたい。別に最後のを赤くすることにこだわりはないので<em>Aborted</em>を赤く表示することで妥協してほしい。マジで。</p>
+<p>自分の最終目標はあくまでも中断したことが後から見て明かなようにすることなので、それを貫かなければいけない。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-10-06T00:00:00+00:00">2017/10/06</time></div><h1>先読み/後読みを持った正規表現をDFAに変換できた</h1></div><div class="article-content"><h1>やったこと</h1>
+<h2>バイトをしていた</h2>
+<p>先読み/後読みを持った正規表現をDFAに変換できた。まさか本当にできると思わなかったがなぜか出来てしまったのでできるのだと思う。</p>
+<p>以下、資料など。</p>
+<ul>
+<li>
+<p>先読み付き正規表現の有限状態オートマトンへの変換
+<a href="https://www.jstage.jst.go.jp/article/jssst/29/1/29_1_1_147/_article/-char/ja/">https://www.jstage.jst.go.jp/article/jssst/29/1/29_1_1_147/_article/-char/ja/</a>
+めっちゃ参考にしたやつ。先読みはBFAで綺麗に実装できるのだけど後読みは‥‥。</p>
+</li>
+<li>
+<p>アトミックグループで拡張された正規表現のオートマトンへの変換
+<a href="http://ci.nii.ac.jp/naid/110009517217">http://ci.nii.ac.jp/naid/110009517217</a>
+アトミックグループにちゃんとした意味論を与えたことに意義があるのだと思う。</p>
+</li>
+<li>
+<p>詳説 正規表現 第3版
+<a href="https://www.amazon.co.jp/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE-%E7%AC%AC3%E7%89%88-Jeffrey-F-Friedl/dp/4873113598">https://www.amazon.co.jp/正規表現-第3版-Jeffrey-F-Friedl/dp/4873113598</a>
+読みたい。</p>
+</li>
+<li>
+<p>Regular Expression Matching Can Be Simple And Fast
+<a href="https://swtch.com/~rsc/regexp/regexp1.html">https://swtch.com/~rsc/regexp/regexp1.html</a></p>
+<blockquote>
+<p>The generalized assertions are harder to accommodate but in principle could be encoded in the NFA.</p>
+</blockquote>
+<p>とか書いてあるけどソースを教えてくれ〜。</p>
+</li>
+</ul>
+<h1>思うこと</h1>
+<h2>PEGの言語のクラス=TWDPDA without Endmarksの言語のクラス？</h2>
+<p>なのではないかと考えていた。TWDPDAというのはTwo-Way Deterministic Push-Down Automataのことで、これは性質がPEGによく似ている。例えば<code>A^nB^nC^n</code>言語（<code>A</code>と<code>B</code>と<code>C</code>がそれぞれ同じ数含む言語）を受理できたり、文脈自由文法の言語のクラスと比較不能だと言われていたり（未解決）、メモ化することで<code>O(n)</code>で受理するかどうか判定するアルゴリズムが知られていたりする。ただ、TWDPDAは回文を受理できる気がする（文字を全てスタックしながら最後まで読んで、最初まで戻ってから今度はスタックした文字と一致するか確認しながらポップしていて最後まで読めたら受理する、みたいな）ので、TWDPDAからEndmark（末尾を表す特別な記号）を除いたものがPEGなのでは？　という発想。</p>
+<p>これを証明するためには多分、PEG→TWDPDAの変換とTWDPDA→PEGの変換を示せれば良いと思う。PEG→TWDPDAは何となくできそうな気がするのだけど、TWDPDA→PEGはそれなりに難しそうな気がする（FA→正規表現が難しいように）。どっちにせよ変換後の言語が同じものになっていることを示すのが難しそう。PEG parsing machineというPEGに対応する仮想機械があるらしいので、それからTWDPDAに変換したりすれば単純になるかもしれないけど、厳密にPEG=PEG parsing machineなのか調べられていないので何とも言えない。</p>
+<p>これが証明できると何が嬉しいのかというと、多分そんなに嬉しいことは無い。というのもTWDPDA自体がPEG同様謎に満ちた存在で、結局CFGとの関係も良く分かっていないから。ただ、PEGという比較的新しい概念がTWDPDAという半世紀以上前からある概念と結び付けば、これまで見えてこなかったものが見えてくる可能性は十分にあると思う。あってほしい。</p>
+<p>資料。</p>
+<ul>
+<li>
+<p>Two-way pushdown automata
+<a href="http://www.sciencedirect.com/science/article/pii/S0019995867903695">http://www.sciencedirect.com/science/article/pii/S0019995867903695</a>
+TWPDAについての論文。45Pあってしんどい。最初のTWPDAについての定義しか読めていない。むずい‥‥。</p>
+</li>
+<li>
+<p>Parsing Expression Grammars: A Recognition-Based Syntactic Foundation
+<a href="http://bford.info/pub/lang/peg">http://bford.info/pub/lang/peg</a>
+言わずと知れたPEGの論文。一度通して読んだのだけど内容が記憶から吹っ飛んでいるので読み直している。面白い。</p>
+</li>
+<li>
+<p>形式言語とオートマトン
+<a href="https://www.amazon.co.jp/%E5%BD%A2%E5%BC%8F%E8%A8%80%E8%AA%9E%E3%81%A8%E3%82%AA%E3%83%BC%E3%83%88%E3%83%9E%E3%83%88%E3%83%B3-Information-Science-Engineering-%E5%AE%88%E5%B1%8B/dp/4781909906">https://www.amazon.co.jp/形式言語とオートマトン-Information-Science-Engineering-守屋/dp/4781909906</a>
+AFAやTWPDAについて触れられていてすごく良い本だと思う。少なくとも2000年ころまでのこの分野の研究成果についてすごくまとまっている気がする。</p>
+</li>
+<li>
+<p>計算理論の基礎 [原著第2版] 1.オートマトンと言語
+<a href="https://www.amazon.co.jp/%E8%A8%88%E7%AE%97%E7%90%86%E8%AB%96%E3%81%AE%E5%9F%BA%E7%A4%8E-%E5%8E%9F%E8%91%97%E7%AC%AC2%E7%89%88-1-%E3%82%AA%E3%83%BC%E3%83%88%E3%83%9E%E3%83%88%E3%83%B3%E3%81%A8%E8%A8%80%E8%AA%9E-Michael-Sipser/dp/4320122070">https://www.amazon.co.jp/計算理論の基礎-原著第2版-1-オートマトンと言語-Michael-Sipser/dp/4320122070</a>
+Amazonでの評価が異常に高い。読みたい。</p>
+</li>
+<li>
+<p>オートマトンと言語理論
+<a href="http://www.ci.seikei.ac.jp/yamamoto/lecture/automaton/text.pdf">http://www.ci.seikei.ac.jp/yamamoto/lecture/automaton/text.pdf</a>
+ググったら出てきた良さげな教科書。そのうち確認がてら読む。</p>
+</li>
+</ul>
+<p>気になるのは、どうしてこんな本を眺めてれば気付くような関係について論じている人がいないのか。サーベイ不足感が否めないのでもう少し調査していきたい。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

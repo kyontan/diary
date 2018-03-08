@@ -1,0 +1,30 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-10-25T00:00:00+00:00">2017/10/25</time></div><h1>diaryを直した</h1></div><div class="article-content"><script async src="//cdn.embedly.com/widgets/platform.js"></script>
+<h1>やったこと</h1>
+<h2><code>do ... end</code>に対して<code>rescue</code>や<code>ensure</code>を使えるようにした際のバグを修正</h2>
+<p><a href="https://github.com/crystal-lang/crystal/pull/5176" class="embedly-card">https://github.com/crystal-lang/crystal/pull/5176</a></p>
+<p><a href="https://github.com/crystal-lang/crystal/pull/5178" class="embedly-card">https://github.com/crystal-lang/crystal/pull/5178</a></p>
+<p>なんか@straight-shootaにめっちゃ指摘された。おかげで睡眠不足。</p>
+<h2>ネギま!? 13話から18話まで観た</h2>
+<p>14話ヤバい。多分、自分のアニメの原点はあそこにあるんだろうなと再確認できた。めっちゃ好き。</p>
+<h2>diaryを直した</h2>
+<p>気合いを入れて直した。色々と改良されてる。</p>
+<ul>
+<li>シンタックスハイライトに<code>highlight.js</code>を使用</li>
+<li>段落にリンクしか無いと勝手にembedlyのリンクになる</li>
+<li>数式に対応 <span class="inlineMath"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><msup><mi>z</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">x^2 + y^2 = z^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span><span class="mrel">=</span><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></span></span></li>
+</ul>
+<p>とまあこんな感じ。あとTravis CIで自動ビルドするようにした。便利。</p>
+<p>今までどうして自動ビルドしていなかったのというとpygmentsを使っていたから。確実に最新版を使いたかった（Crystalのハイライトのため）のだけど、Travisだと上手くいかなそうだったので。<code>highlight.js</code>にしたのでそこはどうにかなった。でもpygmentsの色の付けかたの方が好きだし完成度高いなぁ。（highlight.jsは正規表現で安定して壊れる）</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

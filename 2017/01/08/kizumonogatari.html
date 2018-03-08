@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-01-08T00:00:00+00:00">2017/01/08</time></div><h1>傷物語Ⅲを観た</h1></div><div class="article-content"><script async src="//platform.twitter.com/widgets.js"></script>
+<h1>やったこと</h1>
+<h2>傷物語Ⅲを観た</h2>
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">傷物語観るぞー</p>&mdash; さっき作った (@make_now_just) <a href="https://twitter.com/make_now_just/status/817932900674875392">2017年1月8日</a></blockquote>
+<p>宣言通り観ました。</p>
+<p>良かったです。すげー良かったです。信じて見続けてきてよかったというか、こんなにすごいアニメを作る人がいるのかって本当に衝撃だった。</p>
+<p>まず背景が良かった。3Dで背景作るのってこんなにしっくりくるものなのかと。旗がいっぱい揺れてるのとか、校舎の溝みたいなところをぐわーってカメラが動いていくところとかは3Dじゃないと現実的じゃないよなぁ、と。</p>
+<p>あと当然だけど作画も良かった。悪いわけないんだよなぁ。キスショットが阿良々木君を壁に擦り付けてるところとか、BGMも相俟ってものすごい迫力だった。吉成兄弟とか梅津とかがEDには載っていた。はへー。</p>
+<p>それと個人的に気になったのは、例えば阿良々木君とキスショットが会話するシーンで、まず上から遠目に二人を映すカットで阿良々木君がキスショットになぜか直線的じゃなく少し横に逸れながら近付いて、その次のカットがキスショットを手前にして阿良々木君が左側になるレイアウトで続くところがあるのだけど、このときの阿良々木君の位置といいポーズといいが絶妙で、そこはかとなくオサレなシーンになってる。ここだけじゃないのだけど、こういうほぼ無意味なところで意識的にオサレな構図を持ってくるのはすごくシャフトらしいと思う。</p>
+<p>ストーリーに関しては言うまでもなく、もちろん面白かった。というか傷物語読んだことがあるはずなのに完全に内容忘れてたんですよね。さすがに終盤にさしかかるとどういう結末になるか思い出したのだけど、途中までまったく思い出せなくてハラハラしていた。</p>
+<p>にしても羽川さんのサービスシーンエロすぎである。阿良々木君許さん。</p>
+<h2><code>String#index</code>をラビン-カープ法で実装した</h2>
+<p>実装したら速いけど、なんかこれでいいのかすごく不安になる。というのも、現状のは<code>Char::Reader</code>を使っていて検索時に無効なUTF-8があると例外を投げるようになっているのだけど、自分がラビン-カープで書き直したのはそれが含まれてないから。</p>
+<p>ちなみに、ラビン-カープ法というのは、文字列を本当に比較する前にハッシュを使って一致をチェックすることで比較回数を減らして高速化を図るアルゴリズム。ハッシュ関数を、</p>
+<pre><code class="hljs language-crystal">P = 適当な素数
+hash = <span class="hljs-number">1</span> * s[<span class="hljs-number">0</span>] + c * s[<span class="hljs-number">1</span>] + c**<span class="hljs-number">2</span> * s[<span class="hljs-number">2</span>] ...
+</code></pre>
+<p>のように定義することで、一度ハッシュを計算すれば次のハッシュはO(1)で計算できるようにして、ハッシュ計算のコストを下げている。なんか昔自力で思い付いたことがあるような気がする。文字列の比較ではなかったけど。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

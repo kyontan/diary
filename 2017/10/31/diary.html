@@ -1,0 +1,24 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-10-31T00:00:00+00:00">2017/10/31</time></div><h1>進捗がダメ</h1></div><div class="article-content"><script async src="//cdn.embedly.com/widgets/platform.js"></script>
+<h1>やったこと</h1>
+<h2>進捗がダメ</h2>
+<p>なんかやっていること全てに自信が無くなっている。多分昨日の反動。自分は引き篭もっているほうが進捗が出るタイプなのだと思う。</p>
+<p>とりあえずHFAは一度実装してみないと自信が持てない気がする。実装するのはそんなに大変じゃないように考えたつもりなのでちゃんとやっておきたい。しかしどの言語でやろうか‥‥。まあScalaが無難だろうなぁ。</p>
+<h2>複数行にまたがるメソッドチェーンを4スペースでインデントするように修正</h2>
+<p><a href="https://github.com/MakeNowJust/crystal/tree/fix/crystal-format/multiline-call-4-space-indent" class="embedly-card">https://github.com/MakeNowJust/crystal/tree/fix/crystal-format/multiline-call-4-space-indent</a></p>
+<p>@RX14が言っていたのでやってみた。多分イメージしてたのと違うんじゃないかと思う。実はレシーバーの幅が4文字未満だった場合2スペースにするような実装もしたのだけど、そうしても結局、現実に4文字未満の幅のレシーバーで改行するようなコードはないので、やるだけ無駄だと感じて公開しなかった。多分指摘されると思う。されないかもしれない。</p>
+<p>しかし最近めちゃくちゃ長い名前のインスタンス変数を作りまくってる気がする。フォーマッタがでかすぎるのが悪い。</p>
+<h1>思うところ</h1>
+<p>ハロウィンとかそういう気持ちが無さすぎてNASAになった。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

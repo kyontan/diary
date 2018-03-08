@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-06-16T00:00:00+00:00">2017/06/16</time></div><h1>映画山田孝之3Dを観てきた</h1></div><div class="article-content"><h1>やったこと</h1>
+<h2>映画山田孝之3Dを観てきた</h2>
+<p>謎の映画だった。山田孝之の映画だ。それは分かる。しかしなぜ3Dなのか。まったく分からない。</p>
+<p>基本的には山田孝之にインタビューして、山田孝之がしゃべってるだけ。そんな感じ。</p>
+<p>変な映画だった。ただ、それだけに最後が印象的で、なんだかんだいっても心に残る作品かなぁという気がする。</p>
+<h2>Crystalの挙動はよく分からない</h2>
+<p>これらは動く。</p>
+<pre><code class="hljs language-crystal"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span></span>(&#x26;block : -> Void)
+  <span class="hljs-keyword">yield</span>
+<span class="hljs-keyword">end</span>
+
+foo { <span class="hljs-number">1</span> }
+</code></pre>
+<pre><code class="hljs language-crystal"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span></span>(&#x26;block : -> Void)
+  block.call
+<span class="hljs-keyword">end</span>
+
+foo { <span class="hljs-number">1</span> }
+</code></pre>
+<pre><code class="hljs language-crystal"><span class="hljs-keyword">alias</span> Foo = Void
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span></span>(&#x26;block : -> Foo)
+  block.call
+<span class="hljs-keyword">end</span>
+
+foo { <span class="hljs-number">1</span> }
+</code></pre>
+<p>しかしこれはエラーになる。</p>
+<pre><code class="hljs language-crystal"><span class="hljs-keyword">alias</span> Foo = Void
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span></span>(&#x26;block : -> Foo)
+  <span class="hljs-keyword">yield</span>
+<span class="hljs-keyword">end</span>
+
+foo { <span class="hljs-number">1</span> }
+</code></pre>
+<p>なぜなのか‥。なんとなく想像はできるのだけどうまく原因が特定できない。しんどい。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

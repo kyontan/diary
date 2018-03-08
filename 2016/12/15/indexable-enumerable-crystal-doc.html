@@ -1,0 +1,46 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2016-12-15T00:00:00+00:00">2016/12/15</time></div><h1>IndexableがEnumerableをincludeするようにしたり、「てんしのはねとアクマのシッポ」を読んだり</h1></div><div class="article-content"><script async src="//cdn.embedly.com/widgets/platform.js"></script>
+<script async src="//platform.twitter.com/widgets.js"></script>
+<h1>やったこと</h1>
+<h2><code>Indexable</code>が<code>Enumerable</code>を<code>include</code>するようにした</h2>
+<p><a class="embedly-card" href="https://github.com/crystal-lang/crystal/pull/3699">Avoid TODO, not to include Enumeranle directly by MakeNowJust · Pull Request #3699 · crystal-lang/crystal</a></p>
+<p>単にTODOを潰しただけ。</p>
+<p>本当は<code>Array#zip</code>を<code>Indexable#zip</code>にする変更をしようとしてたんだけど、何かイマイチなような気もするので保留している。</p>
+<h2>Gitリポジトリの外で<code>crystal docs</code>したときにGitの警告が出るのを抑制した</h2>
+<p><a class="embedly-card" href="https://github.com/crystal-lang/crystal/pull/3700">Show warning message if cannot detect github repository on crystal docs by MakeNowJust · Pull Request #3700 · crystal-lang/crystal</a></p>
+<p>というのをこのPRの骨子と考えるとSijaみたいな指摘が出てくるのかな、と思った。</p>
+<p>「fatal: Not a git repository」ってメッセージじゃ何も伝わらないよね、Gitリポジトリじゃないから何なのっていうのを強調する必要があるな、という考えで出したPull Requestなわけです。</p>
+<p>とはいえSijaとのやりとりがこじれたのは自分の英語力不足なので申し訳ない。「not 〜 perfectly」じゃなくて「no perfectly」な。注意しような。</p>
+<p>なんでこんな毎日のように<code>crystal docs</code>周りのPull Request出してるんだろう。</p>
+<h2>Sija/serialport.crに招待された</h2>
+<p>突然なので焦った。<code>libserialport</code>のラッパーらしい。招待されると何なのかよく分からないんだけど、とりあえずコントリビュートしろという圧力を感じるのでコードを確認しようと思う。</p>
+<p>Sijaなんなんだ。</p>
+<h2>「てんしのはねとアクマのシッポ」を読んだ</h2>
+<p><a class="embedly-card" href="http://www.mangaz.com/book/detail/44921">てんしのはねとアクマのシッポ | マンガ図書館Z - 全巻無料で読み放題</a></p>
+<p>マンガ図書館Zで公開されていて、ちょっと気になったので。</p>
+<p>絵がとてもかわいかった。シスプリのミニキャラを描いてた人らしい。なるほど。</p>
+<p>なんというか、漫画って単純な絵の巧さじゃないんだな、と思った。その場その場で必要な絵柄っていうのがあるのかなって。</p>
+<p>全2巻とそんなに長くないし、最後はハッピーエンドで終わる話なので時間に余裕のある人は読んでみてください。</p>
+<h2>Siriと戯れた</h2>
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">Siriに「百合って何だか教えて」って聞いてみました。 <a href="https://t.co/esoUoaViel">pic.twitter.com/esoUoaViel</a></p>&mdash; さっき作った@3日目東R-13a (@make_now_just) <a href="https://twitter.com/make_now_just/status/809336984938254340">2016年12月15日</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">これひどすぎでは <a href="https://t.co/kA1otYsAmy">pic.twitter.com/kA1otYsAmy</a></p>&mdash; さっき作った@3日目東R-13a (@make_now_just) <a href="https://twitter.com/make_now_just/status/809337718668857344">2016年12月15日</a></blockquote>
+<p>Siriって何に使えばいいんですか？</p>
+<h1>所感</h1>
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">余計なお世話の押し付け合いがオープンソースなので、オープンソースのプロジェクトにコントリビュートしていきたい人はまず自分のすることは原則として余計なお世話だということを理解しなきゃいけない</p>&mdash; さっき作った@3日目東R-13a (@make_now_just) <a href="https://twitter.com/make_now_just/status/809352903773171712">2016年12月15日</a></blockquote>
+<p>これをもっと伝えていきたい。</p>
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr"><a href="https://twitter.com/make_now_just">@make_now_just</a> Xeon積んだサーバで良いなら提供できるかも</p>&mdash; きょんたん (@sukukyon) <a href="https://twitter.com/sukukyon/status/809299515438006272">2016年12月15日</a></blockquote>
+<p>いえーいきょんたん神めっちゃ尊敬してる言質は取った。</p>
+<h1>雑感</h1>
+<p>やけに疲れていて午後入ってすぐは眠すぎて死にそうになった。気が付いたらベンチで寝ててまずかった。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

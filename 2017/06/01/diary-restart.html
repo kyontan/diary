@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-06-01T00:00:00+00:00">2017/06/01</time></div><h1>日記を再開します</h1></div><div class="article-content"><h1>やったこと</h1>
+<h2>日記を再開した</h2>
+<p>さすがに一ヶ月間何をしていたか思い出すのはしんどいので5月分の日記はなかったことにします。がんばって6月くらいは毎日更新できるように努力します。</p>
+<p>5月もそこそこ映画を観たのでその感想だけでも書いとけばよかったなと後悔しています。
+観た映画（劇場で観たもの）は、</p>
+<ul>
+<li>ラストコップ THE MOVIE</li>
+<li>帝一の國</li>
+<li>劇場版FAIRY TALE</li>
+<li>夜明け告げるルーの唄</li>
+<li>ブレイブウィッチーズ劇場版</li>
+<li>けものフレンズ一挙</li>
+<li>BLAME!</li>
+</ul>
+<p>辺りでしょうか。帝一の國が面白かったです。あとBLAME!の漫画欲しいです。</p>
+<h2>BFAの実装を進めた</h2>
+<p>とりあえず選言標準形（加法標準形）の実装を進めている。</p>
+<h2>DaoでQuineを書いた</h2>
+<p>よく分からないけどRosetta Codeで目に付いたので。あんましGitHubのスターは無いけど1700コミットとかされてるので開発者のやる気はあるっぽい。C++っぽい型付けをオプショナルにできるのとかは面白そうに思う。</p>
+<p>特にHomebrewでインストールできたりはしないので、自前でビルドすることになる。</p>
+<pre><code class="hljs language-console"><span class="hljs-meta">$</span><span class="bash"> make -f Makefile.daomake macosx</span>
+</code></pre>
+<p>とすると<code>bin/dao</code>が使えるようになるので、それで実行する。</p>
+<pre><code class="hljs language-console"><span class="hljs-meta">$</span><span class="bash"> ./bin/dao quine.dao | diff quine.dao -</span>
+</code></pre>
+<p>適当にドキュメントを見たらVerbatim Stringとやらが面白かったのでそれを使ってみたけど、もっと面白い機能があるかもしれない。非同期とかJITとか色々書いてあるし。ただ、ドキュメントが死ぬほど見辛いのでその気になれなかった。</p>
+<h2>Déjà VuでQuineを書いた</h2>
+<p>デジャヴのヴの発音が難しいってハヤテのごとくネタだっけ？　詳しい人教えてください。</p>
+<p>これも上に同じくRosetta Codeで見つけた言語。スタックベースのプログラミング言語なんだけど、右から左に実行されるのが特徴。右から左にすると関数が左側に来るから一見すると普通のプログラミング言語に見えるという特徴があるような、無いような‥‥。</p>
+<p>なんか普通にレポジトリをcloneしてビルドしても、ヘッダにプロトタイプ宣言しかしてない関数に<code>inline</code>宣言が付いているらしくリンクでこける。のでそれを消して、ついでにmacには<code>-lrt</code>は無いのでそれを消すと動くようになる。</p>
+<p>ファイルの拡張子は<code>.deja</code>で、コンパイル後のバイトコードの格納されたファイルの拡張子が<code>.vu</code>らしい。しかし一発でコンパイルから実行までされる。</p>
+<pre><code class="hljs language-console"><span class="hljs-meta">$</span><span class="bash"> ./vm/vu quine.deja | diff quine.deja -</span>
+</code></pre>
+<p>Quineは、そもそもREADMEに例としてあったので、それと被らないように1行で完結するようにした。<code>vm/std.deja</code>に標準ライブラリのコードがあるんだけど全く読めない。いや、なんとなく読めるんだけど何となくしか読めないと言うか‥‥。そのせいで苦労したけどどうにか1行のQuineが書けた。<code>!.\</code>で改行なしのデバッグプリントのようだ。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

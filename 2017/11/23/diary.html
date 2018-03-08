@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-11-23T00:00:00+00:00">2017/11/23</time></div><h1>NOIRを色々と直した</h1></div><div class="article-content"><h1>やったこと</h1>
+<h2>NOIRを色々直した</h2>
+<p>主にCrystalのレキサを中心に色々と直した。直しまくったのでどこを直したとかよく覚えていない。RougeにCrystalのレキサをバックポートしているうちに色々と知見を得たので、それを反映した感じ。</p>
+<h2>BracmatでQuineを書いた</h2>
+<p><a href="https://github.com/BartJongejan/Bracmat">Bracmat</a>というプログラミング言語がある。記号処理言語とあるとおり、普通に<code>x</code>とか書くとシンボルとして処理されて、<code>!x</code>とか<code>?x</code>とかやらないと参照とか代入ができない。比較的昔から作者がメンテしてる感じがする。でもemscripten対応とかもしてて面白い。がんばってほしい。</p>
+<p>妙に暗号めいた言語で、ドキュメントを読んでもよく分からなかったので困った。しかしQuineは書けた。パターンマッチとかあるっぽいし、それを上手く使いこなしたかったな、という感じ。</p>
+<p>普通に<code>clone</code>してきて<code>src</code>以下で<code>make</code>してもmacOSだとビルドできなかった。<code>-static</code>フラグがついてるのがいけないらしいので、それを消すとビルドできる。実行は、コマンドライン引数でプログラムそのものを渡す感じだったので、</p>
+<pre><code class="hljs language-console"><span class="hljs-meta">$</span><span class="bash"> ./bracmat <span class="hljs-string">"<span class="hljs-variable">$(&#x3C;quine.bra)</span>"</span> | diff quine.bra -</span>
+</code></pre>
+<p>とかやると動く。</p>
+<h2>CLIPSでQuineを書いた</h2>
+<p><a href="http://www.clipsrules.net">CLIPS</a>というエージェントシステムを書くためのプログラミング言語がある。Lispっぽい文法だけど、<code>defrule</code>とかがあって、パターンマッチして色々とできる。そこそこ面白い。</p>
+<p>Quineは<code>format</code>関数の力技でやった。もうしわけねえ。もう少し綺麗にできるような気がするのだけど、中々むずかしい。</p>
+<p>実行は<code>-f2</code>オプションが必要。</p>
+<pre><code class="hljs language-console"><span class="hljs-meta">$</span><span class="bash"> clips -f2 quine.clp | diff quine.clp -</span>
+</code></pre>
+<p>これで255言語になった。次の言語でリリースを切る予定。何しよう。いい加減Adaを書くか。</p>
+<h1>思うところ</h1>
+<p>異常に疲れているのだけど上手く眠れない。死にそう。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-12-23T00:00:00+00:00">2017/12/23</time></div><h1>2DFAの実装をした</h1></div><div class="article-content"><script async src="//cdn.embedly.com/widgets/platform.js"></script>
+<h1>やったこと</h1>
+<h2>2DFAの勉強をした</h2>
+<p>双方向決定的有限状態オートマトン(2DFA)がどうしてDFAに変換できるのかよく分からなかったので勉強した。</p>
+<p>末尾が文字<code>a</code>である文字列<code>wa</code>があるときに、<code>a</code>の位置に状態<code>q</code>で入ってきて、<code>w</code>の文字列を戻ったりしたあと<code>a</code>の次の位置へ<code>p</code>で出て行くような状況を<code>T[wa](q) = p</code>と書くことにする。（下図参照）</p>
+<pre><code class="hljs language-clean">| ... w ... | a |
+ /-&#x3C;-------&#x3C;-[ ]&#x3C;-q-
+ \->------->-[ ]-p->
+</code></pre>
+<p>状態の数は有限だから、<code>T[wa](q) = p</code>の組み合わせの数は状態の数を<code>n</code>としてたかだか<code>n^n</code>の有限個になる。これは明かに文字列の数よりも小さいので、異なる文字列<code>x</code>と<code>y</code>で<code>T[x] = T[y]</code>となるような<code>x, y</code>の組が存在する（鳩の巣原理）。このような<code>x, y</code>に同じ末尾文字列<code>z</code>をつけた文字列<code>xz, yz</code>は<code>xz</code>が受理されるときに限り<code>yz</code>も受理されるだろう。逆もまた然り。よって<code>T[x] = T[y]</code>であることを<code>x ~ y</code>とすると<code>~</code>は同値関係であり、Myhill-Nerodeの定理より2DFAは正規であると言える。そして、<code>T[x]</code>を状態としてDFAを構築することができる、というわけ。</p>
+<p>しかしこれを実装するのはとてもしんどい。あと、Verdiという人が考えた別のDFA構築の方法もあって、そっちも面白い。が、やはり実装が面倒。</p>
+<h2>実装した</h2>
+<p>なぜかHaskell。</p>
+<p><a href="https://github.com/MakeNowJust-Labo/two-way-dfa" class="embedly-card">https://github.com/MakeNowJust-Labo/two-way-dfa</a></p>
+<p>DFAへの変換を実装していないのでダメと言えばダメ。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-06-04T00:00:00+00:00">2017/06/04</time></div><h1>Bratとか</h1></div><div class="article-content"><h1>やったこと</h1>
+<h2>BratでQuineを書いた</h2>
+<p>Bratという、Luaで書かれたプログラミング言語がある。Rosetta Codeで見つけた。Luaにコンパイルされて実行されるっぽいけど、AltLuaっぽい（MoonScriptとか）わけじゃなくて、どちらかと言えばRubyに近い雰囲気。違うけど。</p>
+<p>そこそこメンテされてるのだけど、ビルドが上手くいかなかった。ちょうど6日前に<code>rex_onig</code>というライブラリのバージョンを上げたらしいのだけど、そこで<code>ln</code>する対象のバージョンを変えていなくて、結果的にビルドスクリプトが壊れていた。恐らく作者の手元では元々のライブラリのバージョンの共有ライブラリが残っているから正しく動いてるように見えるのだろう。CI入れろ。その辺を直すPRは出しておいた。あっさりマージされた。途中でdockerのバグを踏んだり散々だった。散々すぎる。</p>
+<p>ビルドは<code>./build.sh</code>を叩くだけでできるようになるはず。</p>
+<pre><code class="hljs language-console"><span class="hljs-meta">$</span><span class="bash"> ./build.sh</span>
+</code></pre>
+<p>実行は<code>./brat</code>で、</p>
+<pre><code class="hljs language-console"><span class="hljs-meta">$</span><span class="bash"> ./brat quine.brat | diff quine.brat -</span>
+</code></pre>
+<p>Quineは特に工夫してないです。<code>to_char</code>があって良かったとしか言えない。</p>
+<h2>ジョジョ3部の前半を見終わった</h2>
+<p>あと24話あるとかマジかよ‥‥。</p>
+<p>とはいえ楽しみ。何を言ってるか分からねーと思うが。</p>
+<h2>傷物語</h2>
+<p>AbemaTVでやってる。鉄血編と熱血編だけだけど。鉄血編観たいなぁ。</p>
+<p>熱血編のバトルシーンやっぱすげぇなぁ。でも鉄血編の方がなぁ。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

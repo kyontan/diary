@@ -1,0 +1,26 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2016-12-12T00:00:00+00:00">2016/12/12</time></div><h1>正規表現について考えたりStandard MLについて考えたり</h1></div><div class="article-content"><p>今日は寝る前に日記を書くことに成功したぞ。</p>
+<h1>やったこと</h1>
+<h2>正規表現について考えていた</h2>
+<p>NFAとかDFAのグラフベースなマッチングの場合どうやってキャプチャすればいいんだとか、そんなことを考えていた。</p>
+<p>先読みと後読みのことを考えるとよく分からなくなる。</p>
+<p>DFAの場合、最初もしくは遷移直後にキャプチャを取るようにして、遷移の条件にゼロ幅のアサーションも含めるようにすればいいのだろうか？</p>
+<p>先読み後読みとか非貪欲マッチはどうやればいいんだか‥‥。</p>
+<h2>Standard MLについて</h2>
+<p>なんかQuineリポジトリの方にPull Requestが来ていたので色々言ってPull Requestを受け付けない旨を伝えたのだけどあんまし上手く伝わらなかった気がする。自分の英語力の無さが問題。</p>
+<p>その途中でちょっと気になる部分があったので"The Definition of Standard ML"というStandard MLの仕様を読んだ。頼むから構文定義の外にRestrictionとか書かないでほしい。</p>
+<h1>やること</h1>
+<p>正規表現について全力で考えていく。</p>
+<p>Crystalのリポジトリに動きがなくて不安。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

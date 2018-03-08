@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-06-27T00:00:00+00:00">2017/06/27</time></div><h1>Crystalのフォーマッタとか</h1></div><div class="article-content"><h1>やったこと</h1>
+<h2><a href="https://github.com/crystal-lang/crystal/pull/4627">#4627</a></h2>
+<p>これ自体はどうやって直せばいいか分かってたので直しておいた。</p>
+<pre><code class="hljs language-crystal">a = <span class="hljs-number">1</span>
+<span class="hljs-keyword">case</span>
+<span class="hljs-keyword">when</span> <span class="hljs-number">2</span>
+<span class="hljs-keyword">else</span>
+  a /= <span class="hljs-number">3</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>のときに、<code>else</code>を処理するところで、<code>/=</code>の前の<code>a</code>が<code>@token</code>になっているところで<code>slash_is_regex!</code>を呼んでから<code>next_token</code>するから、そりゃ<code>/</code>の扱いがおかしくなるよなぁ、っていう。そもそも<code>else</code>の中身を処理する<code>format_nested</code>で<code>skip_space_or_newline</code>してるから、その前でそれをする必要は無いはずなので、それを消して修正完了、のはず。</p>
+<p>ただ、問題は次のissue。</p>
+<h2><a href="https://github.com/crystal-lang/crystal/issues/4626">#4626</a></h2>
+<pre><code class="hljs language-crystal"><span class="hljs-number">1</span> <span class="hljs-comment"># foo</span>
+/ <span class="hljs-regexp">/
+</span></code></pre>
+<p>みたいなコードが<code>crystal tool format</code>でエラーになるやつ。これは<code>skip_space</code>がコメントの後ろの改行までスキップしてしまうことが原因、なんだけど困ったことにフォーマッタの実装がこの挙動に地味に依存してて、上手く直せる気がしない。</p>
+<p>普通にクリティカルなバグだと思うので直したいんだけど、直る気がしない。しんどい。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

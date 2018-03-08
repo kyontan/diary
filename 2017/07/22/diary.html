@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-07-22T00:00:00+00:00">2017/07/22</time></div><h1>Fate/Zeroを観てる</h1></div><div class="article-content"><h1>やったこと</h1>
+<h2>Fate/Zeroを観てる</h2>
+<p>面白すぎる。中学生の頃に観たときはstay nightをやる前だったので、やったあとに観るとすごく印象が変わる。征服王がかっこよすぎる。多分Fateで一番の人格者。</p>
+<p>今のところ2クール目の2話まで見終わった。キャスターをエクスカリバーで倒したところ。ジャンヌ・ダルクってこのころからしっかりデザインされたんだなって思ったけど、Apocryphaっていつくらいに始まったんだっけ‥‥。企画自体はExtraと並行に考えてたみたいだから、デザインはあったのかもしれない。</p>
+<h2><a href="https://github.com/crystal-lang/crystal/pull/4733">#4733</a></h2>
+<p>なんか直せてしまったのでPull Requestを出しておいた。</p>
+<pre><code class="hljs language-crystal"><span class="hljs-keyword">if</span> <span class="hljs-literal">true</span>
+  foo = <span class="hljs-number">42</span>
+<span class="hljs-keyword">end</span>
+
+p foo
+</code></pre>
+<p>は動くのに、</p>
+<pre><code class="hljs language-crystal"><span class="hljs-keyword">if</span> <span class="hljs-literal">true</span>
+  foo = <span class="hljs-number">42</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">begin</span>
+<span class="hljs-keyword">rescue</span>
+<span class="hljs-keyword">end</span>
+
+p foo
+</code></pre>
+<p>と<code>begin ... rescue ... end</code>を挟むとコンパイラがクラッシュするという怪奇現象。夏だしね、怪奇現象くらい起こるでしょう。</p>
+<p>ちなみにPull Requestのタイトルを修正したのは"inference"が動詞だと勘違いしてタイトルを考えていたから。もうやだ英語何も分からない。</p>
+<h2><a href="https://github.com/crystal-lang/crystal/pull/4735">#4735</a></h2>
+<p>タプルを負のインデックスで参照できるようにするやつ。Issueがあったので実装しておいた。</p>
+<p>実装自体はそんなに面倒じゃなかったのだけど、<code>spec/std/tuple_spec.cr</code>の<code>[]?</code>のテストが直接整数リテラルを引数に取る形になってて、そのせいでコンパイルエラーになるので直す必要があったのが盲点だった（Crystalのコンパイラはタプルに対する<code>[]</code>と<code>[]?</code>の整数リテラルを引数にした呼び出しを特殊扱いするので）。その辺意識してテストを書いてほしい。</p>
+<h2>Gravity</h2>
+<p>というプログラミング言語があって、CLIが微妙な感じで実行結果の返り値と実行時間を終了時に出力してうざかったので<code>-q</code>オプションで出力を抑制できるようにPRを投げた。なんかあっさりマージされた。本当にいいのか？　あとQuineを書いた。</p>
+<p>最近はQuineリポジトリのPunch Cardを埋めることを目標にしてるのでコミット時間を調整している。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

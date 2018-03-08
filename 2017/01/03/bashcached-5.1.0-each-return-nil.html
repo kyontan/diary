@@ -1,0 +1,27 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-01-03T00:00:00+00:00">2017/01/03</time></div><h1>bashcachedのv5.1.0をリリースしたり、each系のメソッドがnilを返すようにしたり</h1></div><div class="article-content"><script async src="//cdn.embedly.com/widgets/platform.js"></script>
+<h1>やったこと</h1>
+<h2><code>bashcached</code>のv5.1.0をリリースした</h2>
+<p>といっても<code>--help</code>の出力から<code>udp</code>を無くしただけだけど。<code>udp</code>のプロトコルは実はちょっと違って、対応するのが面倒なので。</p>
+<h2><code>each</code>系のメソッドが<code>nil</code>を返すようにした</h2>
+<p><a class="embedly-card" href="https://github.com/crystal-lang/crystal/pull/3826">Fix each* methods to return only nil by MakeNowJust · Pull Request #3826 · crystal-lang/crystal</a></p>
+<p>やっぱり<code>self</code>よりも<code>nil</code>の方がいいような気がしたので。</p>
+<h2>Ioで天体のメソッドを実装した</h2>
+<p><a class="embedly-card" href="https://github.com/furaji/sora-no-method/pull/7">Ioで天体のメソッドを実装 by MakeNowJust · Pull Request #7 · furaji/sora-no-method</a></p>
+<p>プロトタイプベースのオブジェクト指向が無かったので。</p>
+<p>そういえば昔プロトタイプベースのオブジェクト指向言語って大規模開発に向かないよなぁって言ったら「JavaScriptはオブジェクト指向じゃないのか」と返されたことがあるのだけど、JavaScriptはちょっと違うよなぁと思う。プロトタイプのチェーンはあるんだけど、それを有効に活用してることなんて滅多にないし。クラスのメソッドを実質的にオブジェクトが持っているという状況が活かされる場面ってほぼほぼ無いんだよなぁ。</p>
+<h2>Occultic; Nineを観た</h2>
+<p>時間が取れたので勢いで観た。面白かった。Chaos; Childもそうだけど、ともかく面白さってなんだろうってのを考え抜いて作られてる感じがする。</p>
+<p>ただ、結末については何とも言えないというか、1クールのストーリーじゃないというか、明らかに回収されてない伏線があるし、ゲームなり小説なりでどうにかするんだろうなという気がしてちょっと納得がいっていない。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

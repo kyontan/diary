@@ -1,0 +1,26 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2018-01-14T00:00:00+00:00">2018/01/14</time></div><h1>techbookfest4のCIのセットアップを完了した</h1></div><div class="article-content"><script async src="//cdn.embedly.com/widgets/platform.js"></script>
+<h1>やったこと</h1>
+<h2>techbookfest4のCIのセットアップをした</h2>
+<p><a href="https://github.com/crystal-jp/techbookfest4" class="embedly-card">https://github.com/crystal-jp/techbookfest4</a></p>
+<p>この土日丸々かかった。しかしここ数年で最高の出来だと思う。何基準だか分からないけど。</p>
+<p>Rubocopを設定するのが面倒だからってデフォルトのまま動かしたのは失敗だった。しんどすぎる。おかげでちょっとしたRubyスクリプトのはずが異様に洗練されたコードになった。メソッドを10行以内に保つことに本当に価値はあるのだろうか？</p>
+<p>RedPenの設定もほぼデフォルトなので結構厳しい。まあどうにかなるでしょ。慣れればいくらでも言い換えられる気がする。</p>
+<p><code>Makefile</code>もかなり職人芸的になっている。まあそれでも <code>=</code> しか使ってないので優しいと言えば優しい。<code>Makefile</code>だけで生きていきたい‥‥。</p>
+<p>印刷用とWeb用のPDF、HTMLを一度に生成して、コードの実行テストも走って、さらにRedPenのチェックまで入る仕組みはなかなかないと思うので誇っていきたい。というか誰か褒めて‥‥。</p>
+<h2>アニメを色々観た</h2>
+<p>なんか一日中AbemaTVを観ていた。新作アニメを色々確認できたのでよかった。</p>
+<h1>思うところ</h1>
+<p>日記は毎日更新しよう。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

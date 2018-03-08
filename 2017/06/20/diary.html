@@ -1,0 +1,23 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-06-20T00:00:00+00:00">2017/06/20</time></div><h1>22年目の告白を観た</h1></div><div class="article-content"><script async src="//cdn.embedly.com/widgets/platform.js"></script>
+<h1>やったこと</h1>
+<h2>22年目の告白 私が殺人犯です、を観た</h2>
+<p>思ってたよりも面白かった。スリラーというかミステリだった。藤原竜也は確かに藤原竜也なんだけど、でもテレビ慣れしきってない話題の人って役を完璧にこなしてると思ったし、伊藤英明の泥臭い感じの刑事も最高だった。ミステリとして観ると登場人物が少なすぎて話の流れで真犯人候補が一人になってしまうので微妙だけど、ミステリっぽいだけでそれが本質ではないので問題ない。面白いのは序盤のあるかもしれないという妙なリアリティと、中盤の仲村トオル演じるジャーナリストと藤原竜也演じる曽根崎のテレビでも議論。この辺りが圧倒的だった。</p>
+<p>一人一人の行動もあとから振り返ってみると理に適っていて、もう一度観ても多分楽しめると思う。良い作品だった。</p>
+<h2><code>()</code>の扱い</h2>
+<p><a class="embedly-card" href="https://github.com/crystal-lang/crystal/pull/4592">Parser: fix #4590, correct to parse empty parenthesis "()" by MakeNowJust · Pull Request #4592 · crystal-lang/crystal</a></p>
+<p>議論は続く。</p>
+<p><code>()</code>が<code>nil</code>として評価されても多分コードゴルフくらいでしか役に立たないと思うからどうでもいい（もちろん@srtraight-shootaが言うようにマクロのときの合理性ってのもあると言えばあるけど、それは<code>begin ... end</code>でどうとでもなる）んだけど、問題は<code>(foo; bar)</code>みたいな式で、これが一体いつ役に立つのか、っていう。考えるととくに役に立つときはない（なぜなら<code>(foo; bar)</code>が式の一部に現れるということは、<code>foo</code>がその式のそれより前の部分のあとで、しかし<code>bar</code>に先立って評価されなきゃいけない状況のときで、そんな場合は複雑すぎるから何行かに分けて書いたほうがいい）のだけど、だからといって絶対に否定しなきゃいけないってことはないと思う、みたいな曖昧な考えでいる。ただ、議論としては否定側のつもり。伝わってるのかは不明。あとPRの話題から外れすぎてるような気がしなくもないけど、それはまあボク自身がPRのAuthorなのでいいかな、と。ボクじゃなかったら別issue立ててる。</p>
+<p>ふと思ったのが評価順序って副作用に依存する問題でしかないのは面白いような気がする。考えてみればその通りだし、だからこそHaskellが成り立っているわけだけど、実際にそれを問題にすることは少ないよなぁ、と。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

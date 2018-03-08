@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-10-19T00:00:00+00:00">2017/10/19</time></div><h1>マスト丼の鯖を再構築した</h1></div><div class="article-content"><h1>やったこと</h1>
+<h2>マスト丼の鯖を再構築した</h2>
+<p>マスト丼の鯖はConohaのメモリ2GBのプランを使っているのだけど、本来なら50GBあるはずのSSDが20GBしか使えていない。これは元々20GBしかSSDに容量がないメモリ500MBのプランからディスクを移行したせいで起きた問題で、どうもConohaは対処する気がないっぽいので、いい加減鯖を再構築することにした。<code>docker-compose build</code>をする度に容量が無くならないか怯える暮らしは正直しんどい。</p>
+<p>せっかくなのでストレージをConohaのオブジェクトストレージにしたりした。これはそんなに大変じゃなかった。強いて言えば<code>swift</code>コマンドのインストールが面倒で、Homebrewになかったので仕方なくPythonの<code>venv</code>を切って、そこに<code>swift</code>コマンドをインストールした。多分、言語の方のSwiftのコマンドと被るからHomebrewには追加されないのだと思う。</p>
+<p>Conohaのオブジェクトストレージにするための設定は<a href="https://gist.github.com/esetomo/7993076bf186aa116df3f97f919bc783">この辺</a>を参考にした。ありがたい。</p>
+<p>鯖の再構築は18時くらいに始めて、22時くらいに終わったと思う。大半がmastodonで<code>rails assets:precompile</code>すると<code>Permission denied</code>になる謎のバグに費された気がする。これの原因は結局よく分からないけれど、<code>public/packs</code>を消すと上手く動いたりする。</p>
+<p>以下やったことまとめ（覚えている限り時系列順）。</p>
+<ul>
+<li>元の鯖の<code>h2o</code>を落とす</li>
+<li>元の鯖から手元にバックアップを取る</li>
+<li>元の鯖のマスト丼のSQLダンプを取る</li>
+<li>Mastodonのリポジトリのrebase</li>
+<li>新しくサーバーを立てる</li>
+<li><code>pacaur</code>のインストール</li>
+<li>
+<p><code>docker-compose</code>, <code>h2o</code>, <code>certbot</code>, <code>mackerel-agent</code>のインストール</p>
+<ul>
+<li><code>mackerel-agent</code>のインストールは地味にしんどかった。(AURのビルドスクリプトが死んでるので)</li>
+</ul>
+</li>
+<li><code>docker-compose</code>でマスト丼を起動</li>
+<li><code>h2o</code>の設定を元の鯖から持ってくる</li>
+<li>DNSの設定を変更して新しい鯖を向くようにする</li>
+<li>ここら辺で<code>rails assets:precompile</code>がおかしくなる。がんばる。</li>
+<li>どうにか動くようになる</li>
+<li>アイコンがおかしかったりしたのを修正</li>
+<li><code>eslint</code>をかける</li>
+</ul>
+<p>ちなみにMastodonのバージョンを2.0.0まで上げるとカスタム絵文字が使えるようになる。すごい。</p>
+<p>あとTODO。</p>
+<ul>
+<li>鯖をもうちょい真面目に設定する（セキュリティ周りがいい加減すぎる）</li>
+<li>マスト丼のdailyタスクを回すための仕組みを整える</li>
+</ul>
+<p>他にもやることあった気がする。</p>
+<p>そんな感じです。</p>
+<h1>思うところ</h1>
+<p>個人的なタスクとして、</p>
+<ul>
+<li>Apocrypha観たい</li>
+<li>月姫やりたい</li>
+</ul>
+<p>というのがある。時間を作るぞ。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

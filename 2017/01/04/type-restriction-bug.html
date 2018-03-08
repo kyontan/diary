@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-01-04T00:00:00+00:00">2017/01/04</time></div><h1>デフォルト引数に型制約が適用されない問題を修正した</h1></div><div class="article-content"><script async src="//cdn.embedly.com/widgets/platform.js"></script>
+<p>プログラミングに対するモチベーションが非常に低下している。</p>
+<h1>やったこと</h1>
+<h2>デフォルト引数に型制約が適用されない問題を修正した</h2>
+<p><a class="embedly-card" href="https://github.com/crystal-lang/crystal/pull/3834">Restrict argument types having a default value by MakeNowJust · Pull Request #3834 · crystal-lang/crystal</a></p>
+<p>例えばこんなコードがあったとする。</p>
+<pre><code class="hljs language-crystal"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span></span>(x : String = <span class="hljs-number">1</span>)
+<span class="hljs-keyword">end</span>
+
+foo
+</code></pre>
+<p><code>x : String</code>になってるのに<code>x = 1</code>がデフォルト値になっている、見るからに変なコードなんだけど、現状のコンパイラはこれを通してしまう。というのも、デフォルト値に対する型制約は適用されないから。</p>
+<p>ついでに言うとこういうコードも上手く動かない。</p>
+<pre><code class="hljs language-crystal"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span></span>(x : T.<span class="hljs-keyword">class</span> = String) forall T
+  p <span class="hljs-template-variable">{{ T }}</span>
+<span class="hljs-keyword">end</span>
+
+foo
+</code></pre>
+<p>型制約のチェックをする際に自由変数の値が設定されるようになってるので。</p>
+<p>どうやって修正したかを簡単に説明すると、<code>TypeRestriction</code>という疑似ノードを追加して、メソッドが実体化されるときに型制約を持つデフォルト引数があったら挿入するようにしている。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

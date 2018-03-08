@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-08-05T00:00:00+00:00">2017/08/05</time></div><h1>KokaとかObjeckとかZeptoとか</h1></div><div class="article-content"><h1>やったこと</h1>
+<h2>Koka</h2>
+<p>Kokaという、エフェクト計算をベースにしてるけど見かけがML系じゃない言語がある。当然だけど手続き型的な言語でもエフェクト計算はできるんだな、という印象。面白いと思う。</p>
+<p>JavaScriptにコンパイルされるのでAltJSと呼べなくもない。</p>
+<p>また、ビルドのために<code>npm install</code>をすると<code>npm install -g</code>が発動するクソ仕様。ちなみに<code>sudo npm install</code>時に<code>preinstall</code>スクリプトを実行するのはnpm@5系列から禁止になったのだけど、どうするつもりなんだろう？　他にも<code>cabal install</code>しだしたりして手が付けられない。こんなんに環境を破壊されてはたまらないので<code>docker</code>で閉鎖環境を作り出して、そこでビルドした。</p>
+<p>ちなみにマルチディスパッチで、<code>x.foo</code>は<code>foo(x)</code>と同じ意味になる。ChaiScriptもこうだったけど、最近はこういうの流行りなんだろうか？</p>
+<p>Quineはなんかそれっぽく書いたつもり。あんましエフェクトとか使えなくて微妙。</p>
+<h2>Objeck</h2>
+<p>なんかVMで実行するプログラミング言語。JITとかもあるし標準ライブラリをがんばって作ってるみたい。しかし手元でまったくビルドが通らない。しかたないので公開されているバイナリで実行した。ビルドスクリプトを見ると成果物を<code>~/Desktop</code>に保存したりするので邪悪感がハンパない。</p>
+<p>言語としては<code>→</code>をメソッド呼び出しに使う以外はいたって普通な気がする。あと<code>Print</code>メソッドとかそれ系がオブジェクトに直接生えてる。それってどうなのよ‥‥。</p>
+<p>Quineは<code>→</code>が目立つようにがんばったつもり。</p>
+<h2>Zepto</h2>
+<p>Haskellで書かれたLisp。<code>stack</code>対応してないみたいだけど<code>stack init</code>と<code>apt install libpcre3-dev</code>で動いた。<code>stack</code>すごい。</p>
+<p>SchemeっぽいLispってことでSchemeの<code>format</code>が使えるのだけど、実装が中途半端なせいでいまいち使えない。仕方ないのでQuineは、Schemeなら恐らくなんで動くんじゃないかっていう<code>eval</code>で組み立てるやつにした。手抜き。</p>
+<h2>Quineリポジトリ</h2>
+<p>249言語になった。250言語で祝おうとしたら256言語にしろと言われたので256言語までがんばる。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

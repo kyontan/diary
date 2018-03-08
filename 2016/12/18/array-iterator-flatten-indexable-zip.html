@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2016-12-18T00:00:00+00:00">2016/12/18</time></div><h1>Iterator#flattenを直したり、Array#zipをIndexable#zipにしたり</h1></div><div class="article-content"><script async src="//cdn.embedly.com/widgets/platform.js"></script>
+<h1>やったこと</h1>
+<h2><code>Iteratir#flatten</code>を直した</h2>
+<p><a class="embedly-card" href="https://github.com/crystal-lang/crystal/pull/3703">Revive Iterator#flatten from type inference hell by MakeNowJust · Pull Request #3703 · crystal-lang/crystal</a></p>
+<p>最高に疲れたんだけどマージされて本当によかった。<code>Array</code>だけ平坦にするんで妥協するんでもういいんじゃないかな‥‥。</p>
+<blockquote>
+<p>Forgot to say this, best issue title ever! 🤘</p>
+</blockquote>
+<p>めちゃくちゃ嬉しい。</p>
+<h2><code>Array#zip</code>を<code>Indexable#zip</code>にした</h2>
+<p><a class="embedly-card" href="https://github.com/crystal-lang/crystal/pull/3725">Move Array#zip to Indexable#zip by MakeNowJust · Pull Request #3725 · crystal-lang/crystal</a></p>
+<p>これはまあできるよなぁって思ってた。</p>
+<p>まだ反応がないのでなんとも言えない。</p>
+<h2><code>Array#flatten</code>が<code>Iterator</code>も<code>flatten</code>するようにした</h2>
+<p><code>Iterator#flatten</code>の挙動に合わせるようにした。</p>
+<p>これは別にマージされなくてもかまわないのだけど、Aryがここまで考えてたら面白いなぁとかその程度。</p>
+<h1>やってないこと</h1>
+<p><a href="https://github.com/crystal-lang/crystal/pull/3700">crystal-lang/crystal#3700</a>の対応は明日やります。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

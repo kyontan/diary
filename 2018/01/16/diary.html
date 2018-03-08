@@ -1,0 +1,20 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2018-01-16T00:00:00+00:00">2018/01/16</time></div><h1>h.jsを弄ってる</h1></div><div class="article-content"><h1>やったこと</h1>
+<h2>h.jsを弄ってる</h2>
+<p>h.jsをひさしぶりに弄っていた。一年に一度くらいしか弄らないので元のコードを忘れているかというとそうでもなくて、意外とどんなコードだったか覚えている。h.jsは弄るのにありえないほど集中力が要求されるので自然と記憶しているのだと思う。</p>
+<p>今回やったのはES2018対応だけど、ES2018の追加点が正規表現の<code>s</code>フラグくらいしかないので、その修正をしただけ。あと今時アロー関数が使えないブラウザとか対応しなくていい気がしたのでその辺も切ってしまった。おかげでサイズが縮んだので万々歳。</p>
+<p><a href="http://h.js.org/">h.js.org</a>の更新がしんどいなーという気持ちがあったので、思い切ってNuxt.jsで書き直してみた。Nuxt.jsいい感じ、というかBulmaがいいのかもしれない。</p>
+<p>と思っていたのだけど、色々やっているうちにUglifyを利かせるとコメントが消えて動かなくなることを思い出したので、気合でテンプレート文字列に書き直した。テンプレート文字列の欠点はエスケープがしんどいことなのだけど、エスケープをかけてから圧縮すればそこそこ容量を減らせるしエスケープの数がちょっとだけになるのでどうにかなる。どうにかしたい。</p>
+<p><code>README.md</code>の中身とかは明日やる気があったらやります。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

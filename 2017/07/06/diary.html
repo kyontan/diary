@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-07-06T00:00:00+00:00">2017/07/06</time></div><h1>配列のrotateについて</h1></div><div class="article-content"><h1>やったこと</h1>
+<p>ジャンクガレッジで辛ラーメンを食べた。やはり辛いものは苦手だ（昨日財布を忘れた腹いせ）</p>
+<h2>配列のrotateについて</h2>
+<p>長さ<code>N</code>の配列を<code>D</code>個分rotateするには、いくつか方法がある。</p>
+<ol>
+<li>
+<p>一時配列を使う方法</p>
+<p><code>D</code>個分の要素を先頭からコピーして、配列の残りの要素を先頭まで持ってきたあとコピーしたものをその後ろに追加する方法。一番直感的。
+<code>N - D &#x3C; D</code>の際に<code>N - D</code>個分後ろからコピーするようにしたりすると、<code>D</code>が極端に小さい/大きい場合は十分に早いのだけど<code>D</code>が<code>N / 2</code>に近付くとかなり遅くなる。
+あとin-placeじゃない。</p>
+</li>
+<li>
+<p>ジャグリング法</p>
+<p><code>D = 1</code>の場合、<code>0</code>番目の要素を保存しておいて、<code>1</code>番目の要素を<code>0</code>番目に移動して、<code>2</code>番目を<code>1</code>番目に移動して、を<code>N - 2</code>番目の要素まで繰り返し<code>N - 1</code>番目に保存しておいた<code>0</code>番目の要素を移動すれば完了する。
+しかし<code>D >= 2</code>の場合、同じようにしようとすると、保存しておかなきゃいけない先頭の要素の数が<code>D</code>個になってしまい、in-placeにならない。そこで<code>(i + D) % N</code>番目の要素を<code>i % D</code>番目に代入したら、次は<code>(i + 2 *D) % N</code>番目の要素を<code>(i + D) % N</code>番目の要素に代入し、最初の位置の手前に戻ってきたら保存しておいた最初の要素を代入する、という風にする。すると<code>D</code>と<code>N</code>がもし互いに素なら一周すると開始位置が<code>1</code>ずれて、何周か繰り返すうちに最初の位置に戻ってくるようになり、完了する。<code>D</code>と<code>N</code>が互いに素でないなら最大公約数だけ系列が存在するので、開始位置をずらして全ての系列に対して同じことをしていけばいい。
+こうすることで、in-placeで内側のループの回数は<code>N - GCD(N, D)</code>回で動く。<code>GCD(N, D)</code>が大きくなるとき（例えば<code>N</code>が2の倍数のときの<code>D = N / 2</code>のとき）に群を抜いて高速になるが、それ以外のときは全体的に遅めな気がする（ランダムアクセスすぎてキャッシュに載らない？）。</p>
+</li>
+<li>
+<p>ブロックスワップ、リバース</p>
+<p>明日解説する。眠い。</p>
+</li>
+</ol>
+<p>とりあえず、ブロックスワップが優秀な気がするのでこれで行きたい。</p>
+<p>重要なことは、<code>rotate</code>は使われるとしたら<code>D = 1</code>か<code>D = -1</code>で少しずつ回転させていくか、もしくは様々な大きさで満遍なく回転させるかのどちらかだと予想できて、現状の実装は様々な大きさの場合にパーフォーマンスがそこまでよくなくて、また<code>|D| = 1</code>の場合もそれならメモリ確保は不要なのだということ。個人的にはどうにかしてin-placeでいいという流れにしたい。少なくともRubyはin-placeだった。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

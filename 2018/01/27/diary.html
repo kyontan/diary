@@ -1,0 +1,23 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2018-01-27T00:00:00+00:00">2018/01/27</time></div><h1>ZigでQuineを書いた</h1></div><div class="article-content"><script async src="//cdn.embedly.com/widgets/platform.js"></script>
+<h1>やったこと</h1>
+<h2>ZigでQuineを書いた</h2>
+<p>Zigというプログラミング言語がある。どんな言語かと聞かれると、多分RustとD言語を足して2か3で割ったような言語と答えると思う。要するにコンパイル時に色々やろうとするRust。しかし使っててそんなに魅力を感じはしなかった。</p>
+<p>例えば組込みの関数は名前を<code>@</code>から始めることになっているっぽいのだけど、これに大した理由は無いように思える。組み込みの関数と通常の関数を区別する必要性って？　とか、それをドキュメントに並べる意味はあるの？　とか。不明瞭なところが多い。まだ若いプロジェクトだから、と弁護することもできるんだけど、それにしては2000コミット以上もされている。なんだかなぁ。</p>
+<p>Quineは複数行文字列のリテラルが面白いと思ったので使ってみた。それだけ。</p>
+<p><a href="https://github.com/MakeNowJust/quine/commit/49616d0d6a1b8ffa2291141a452e5dbddcb05894" class="embedly-card">https://github.com/MakeNowJust/quine/commit/49616d0d6a1b8ffa2291141a452e5dbddcb05894</a></p>
+<h2>MacBook Proが修理された</h2>
+<p>思ったより早かった。明日取りに行く。</p>
+<p>しかし今のこの環境が思いの外快適なのが困る。少なくとも<code>.zshrc</code>とか<code>.vimrc</code>は今使っているのを採用したい。simple is best感がある。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

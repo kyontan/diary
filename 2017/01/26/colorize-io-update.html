@@ -1,0 +1,23 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-01-26T00:00:00+00:00">2017/01/26</time></div><h1>Colorizeをさらに書き直した</h1></div><div class="article-content"><h1>やったこと</h1>
+<h2>日記をがんばって更新した</h2>
+<p>忙しすぎて更新できていなかったので書くことはあるんだなぁと感じたのだけど、当日更新しないと何があったか忘れるなぁという感じ。</p>
+<h2><code>Colorize</code>をさらに書き直した</h2>
+<p>お前はいったいどれだけ<code>Colorize</code>を弄り続けるんだという感じ。気が付いたら差分2000行くらいになった。誰がそんな行数の差分をレビューできるんだ。</p>
+<p><code>Colorize::ColorizableIO</code>というものを追加して、<code>IO::FileDescriptor</code>でmixinするようにした。で、これが<code>colorize_when</code>というプロパティを持っていて、その値に応じてエスケープシーケンスを出力するかどうかを決めるようにした。あと、色付けのスタックも<code>IO</code>が持つようにした。</p>
+<p>で、ここまでやるとコンパイラの方も色々と書き直さなくちゃいけなくなって困る。がんばって書き直しているうちに、例外のメッセージが色付けされたものはメッセージを組み立てるときに色付けされてるっぽいのが面倒だった。<code>Colorize::Builder</code>を追加して、色付けされたものを持っておいて実際に出力するまで色付けするかどうかを遅延させられるようにした。</p>
+<h2>セイレンを観た</h2>
+<p>3話まで。面白いなー、これ。最悪オタクが大好きな最悪アニメって感じだ。いいっすね。</p>
+<p>ガヴリールドロップアウトも観なきゃ。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-06-03T00:00:00+00:00">2017/06/03</time></div><h1>バイトとかColorizeとかEfeneとか</h1></div><div class="article-content"><script async src="//cdn.embedly.com/widgets/platform.js"></script>
+<h1>やったこと</h1>
+<h2>バイトをした</h2>
+<p>穴を掘ったりする簡単なお仕事。</p>
+<p>そろそろ人間の脳内状態遷移の限界を感じる。</p>
+<h2>Crystalのコンパイラのカラー出力がTTYかどうかを確認するようにした</h2>
+<p><a class="embedly-card" href="https://github.com/crystal-lang/crystal/pull/4499">Compiler: use Colorize.on_tty_only! by MakeNowJust · Pull Request #4499 · crystal-lang/crystal</a></p>
+<p>これ。</p>
+<p>なんか一週間くらい前に実装したのだけどPull Requestを出していなかった。</p>
+<p>正直もう<code>Colorize</code>と関わりたくないレベルでこれに消耗させられてるのだけど、自分がやらないと他にやる人がいないっぽいのでやらざるを得ないという。誰か〜、誰か氏〜。</p>
+<h2><code>String#underscore</code>の修正がマージされた</h2>
+<p><a class="embedly-card" href="https://github.com/crystal-lang/crystal/pull/4280">Fixed #4278: String#underscore with digit by MakeNowJust · Pull Request #4280 · crystal-lang/crystal</a></p>
+<p>寝てる間にマージされてた。</p>
+<p>ボクが放置してたのが全部悪いです。</p>
+<h2><code>make clean_crystal</code>が追加された</h2>
+<p><a class="embedly-card" href="https://github.com/crystal-lang/crystal/pull/4268">Makefile: add 'clean_crystal' target by MakeNowJust · Pull Request #4268 · crystal-lang/crystal</a></p>
+<p>同じく寝てる間に。</p>
+<pre><code class="hljs language-console"><span class="hljs-meta">$</span><span class="bash"> make clean</span>
+</code></pre>
+<p>するとC++のビルドしたのも消えちゃうけど、それは残しておきたいよね、っていうときのために、</p>
+<pre><code class="hljs language-console"><span class="hljs-meta">$</span><span class="bash"> make clean_crystal</span>
+</code></pre>
+<p>を追加した。これを使うと、コンパイラを弄ってて途中でコンパイラが壊れたりしたときに役に立つ。</p>
+<h2>EfeneでQuineを書いた</h2>
+<p>EfeneというBEAM VM（ErlangのVM）で動くプログラミング言語がある。構文が人間に優しい感じになった、AltErlangという感じ。Erlangが既に独自の世界観を持っているのに、その上にさらに独自の世界観を作り上げているElixirとは違って、悪魔で読みやすいErlangという感じがして良い。Erlangが分からないと書けないのは同じなんだけど、それはJavaScriptに対するCoffeeScriptだって同じでしょう。そんな感じ。</p>
+<p>Homebrewで提供されてなかったので<code>rebar3</code>でビルドした。</p>
+<pre><code class="hljs language-console"><span class="hljs-meta">$</span><span class="bash"> rebar3 compile</span>
+<span class="hljs-meta">$</span><span class="bash"> rebar3 escriptize</span>
+</code></pre>
+<p>とすると、<code>_build/default/bin/efene</code>が出来て、</p>
+<pre><code class="hljs language-console"><span class="hljs-meta">$</span><span class="bash"> ./_build/default/bin/efene beam quine.fn &#x26;&#x26; escript quine.beam | diff quine.fn -</span>
+</code></pre>
+<p>みたいな感じでコンパイル・実行できる。</p>
+<p>Quineは敢えてErlangと同じ構成にした。まあ考えたくなかっただけでもある。</p>
+<h1>日記のslugを<code>diary</code>にしていきたい</h1>
+<p>そうしないと日記を書き出す前にslugを決めなきゃけなくなる。しんどい。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

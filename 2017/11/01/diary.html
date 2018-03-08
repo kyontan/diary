@@ -1,0 +1,30 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-11-01T00:00:00+00:00">2017/11/01</time></div><h1>楽園 vol. 25を買った</h1></div><div class="article-content"><h1>やったこと</h1>
+<h2>ネギま!?の25話を見た</h2>
+<p>もうすぐ終わってしまう‥‥。ちょっとかなしい気持ちになりつつも、やっぱ面白いなぁと思いながら見ていた。</p>
+<p>次は最終話。</p>
+<h2>楽園 vol. 25を買った</h2>
+<p>新宿の紀伊国屋で買った。まだ読んでいない。ぱらのまが読めると思うとめっちゃくちゃ楽しみ。</p>
+<h2>コメダ珈琲に行った</h2>
+<p>本当に豆が出てきた。面白い。ちなみにコメダ珈琲ではlogstashとたわむれていた。logstashのプラグインの完成度には疑問が残る。コミュニティベースはかくも難しい。</p>
+<h2><a href="https://github.com/crystal-lang/crystal/issues/5225">crystal-lang/crystal#5225</a></h2>
+<p>まったく分からん。<code>with ... yield</code>を違う型で二回読んだらおかしくなるのは前々から認識していいた。多分分かってて放置してた人は多いんじゃないかと思う。これに関しては何となく直すパッチを書いた。多分ちゃんと動く。</p>
+<p>問題はトップレベルのメソッドの中で<code>self</code>が使えてしまう問題で、これは本当に意味が分からない。<code>call.cr</code>でどんな<code>self_type</code>に対しても<code>args["self"] = MetaVar.new("self", self_type)</code>とかしてるから、これを<code>Program</code>は弾くようにすればいいのかな、と思って直すとなぜか<code>require "crystal/main"</code>で<code>Index out bounds</code>とか言われる。じゃあ<code>MainVisitor</code>の<code>visit(node : Var)</code>で<code>@vars</code>に<code>"self"</code>があった場合でも<code>current_type()</code>が<code>Program</code>ならエラーにするとかやると、今度は<code>src/pointer.cr</code>で、明らかにメソッドなのに<code>self</code>が無いとかなる。意味が分からない‥‥。</p>
+<p>もうダメ。</p>
+<h2><a href="https://github.com/crystal-lang/crystal/issues/5219">crystal-lang/crystal#5219</a></h2>
+<p>ダメな気持ちに追い討ちをかけられている。</p>
+<p>まあ最終的なAryのPRの完成度は十分に高いと思ったので許した。</p>
+<h1>思うこと</h1>
+<p>なんかともかくしんどい気持ちにさせられているので楽園を読んで寝る。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

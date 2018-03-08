@@ -1,0 +1,27 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-07-09T00:00:00+00:00">2017/07/09</time></div><h1>ハヤテのごとく！を読破した</h1></div><div class="article-content"><h1>やったこと</h1>
+<h2>メアリと魔女の花を観に行った</h2>
+<p>8時20分からの回を観に行った。早起きできて良かった。</p>
+<p>面白かった？　と訊かれるとまあジブリだったと答えてしまいそうな感じ。ただ、なんかいまいちストーリーが練られてない気がするというか、行って帰ってきて行って帰らされて行って帰るだけという感じ。え、これで二時間？　という。ただ、妙にテンポが遅いと感じたわけじゃないので、キャラクター数が少ないことが原因かなぁという気がする。キャラクター、というか出てくる人が少なくてあまりにも話が閉じてる感じ。宮崎駿の作品って物語にしっかりと主要人物以外の群集がいて、その人たちもそこで生きている感じがするのだけど、どうもそれが無かった。——と偉そうなことを言ってみているけどまったく自信はない。</p>
+<p>あと気になったのは「人には扱いきれない力がある」からの動物たちと一緒にそれを倒しに行く展開なんかはすごく恣意的なものを感じたりした。橋のモチーフ（千と千尋の神かくしのアレ）は前半は強調されてるのに後半まったく無くて何だったんだ感がある。</p>
+<p>米林宏昌監督はジブリの人たちと作ってるからジブリっぽいけど、宮崎駿ではないんだなぁというのが結論かもしれない。宮崎駿の作品はともかく恐しいほどに密度が濃くて、ある意味では話に無駄だらけなんだけど、どれを取っても宮崎作品では無くなるというか、それが魅力なんだろうな、と。</p>
+<p>偉そうなことばっか言ってしまっている‥‥。</p>
+<h2>yの家に行ってハヤテのごとく！を読んだ</h2>
+<p>43巻から52巻までを読んだ。面白かった。ちゃんと話が終わったし、単にナギとハヤテがくっつくってわけじゃないエンドに持っていけたのは本当に良かったと思う。歩もちゃんとヒロインしてたし。</p>
+<p>設定は正直回収できてるのかよく分からない（覚えてないので）けど、まあ悪くないくらいにはまとまった気がする。</p>
+<p>素晴らしい作品をありがとうございました。次回作に期待しています。今連載してるのとか（タイトルが覚えられない）それが声優も読みたいなぁ。</p>
+<h2><a href="https://github.com/crystal-lang/crystal/pull/4690">#4690</a></h2>
+<p>また@sdogruyolさんに言われたので。今回は結構手強かった。というか間接的に<code>write_comment</code>が改行まで問答無用で削り取ることが関係してるのでともかくしんどい。</p>
+<p>とりあえず<code>write_line</code>に<code>p caller</code>を仕込んでどこで改行してるのか確認して、<code>consume_lines</code>が2行まで改行を消費することが分かったので2行書き出したときは<code>@wrote_double_newlines</code>を<code>true</code>にセットして、そのときは<code>getter</code>と<code>def</code>の間の改行を書き出さないようにした。これで動きはするけど、根本的に<code>write_comment</code>の挙動を直した方が絶対に良いと思う。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-07-19T00:00:00+00:00">2017/07/19</time></div><h1>バイトなどした</h1></div><div class="article-content"><h1>やったこと</h1>
+<h2>バイトをした</h2>
+<p>ひさしぶりだけどどうにかやれた。Scalatestの<code>Table</code>の使い方よく分からん‥‥。</p>
+<p>問題はここから感が強いのでどうにかしなきゃならない。</p>
+<h2>bashcachedのテストの改良</h2>
+<p>ともかく安定してパスするように<code>sleep</code>を挟んだりして努力した。おかげで大分安定したと思う。</p>
+<p><code>retry_on_error</code>メソッドでbashcachedサーバーに繋ぎに行く際の些細なエラーをリトライするようにしたり、<code>exptime</code>のテストで<code>exptime: 2</code>を使うようにして読み出す前に消えてしまうことを回避したりした。<code>exptime</code>に関しては実はbashcachedのバグとも言えなくもなくて、例えばコンマ以下が.9秒くらいのタイミングで<code>exptime: 1</code>をセットすると、0.1秒の経過で値が消えてしまうことになる。これを回避するには<code>printf %(s)T -1</code>じゃなくて<code>date +%s.%N</code>みたいにコンマ以下の時間まで含めて時間を取得するようにすればいいのだけど<code>date</code>コマンドを呼ぶと外部コマンド呼び出しになってめっちゃ遅くなるのであまりやりたくない。悩みどころ。</p>
+<p>そしてCircleCIで多発する<code>ENETUNREACH</code>は原因がまったく分からなかった。なんかcool downとかいって<code>sleep 0.1</code>をbashcachedの終了後に入れたら安定するようになった気がするけど気のせいかもしれない。謎。</p>
+<p>残りのテストは明日にでも書きます。</p>
+<h2><a href="https://github.com/crystal-lang/crystal/pull/4726">#4726</a></h2>
+<p>文字列補間の末尾が改行で終ってるとエラーになるので<code>skip_space_or_newline</code>を挟んでおいた。</p>
+<p>文字列補間の中で複数の式書けないのが気になるけどそれはそれで‥‥。</p>
+<h2><a href="https://github.com/crystal-lang/crystal/issues/4725">#4725</a></h2>
+<p>こっちは空の文字列補間がダメっていう話。複数の式が書けないのとも関係がある気がする。もうちょい反応を待ちたいなぁ。</p>
+<h1>crystalの日本語ドキュメント</h1>
+<p>なんか@5t111111さんがdeprectedメッセージの表示に格闘していた。リバートのリバートは純粋に面白いので笑ってしまう。</p>
+<h2>Goby</h2>
+<p>というプログラミング言語がある。Go言語で実装された一見Rubyのような文法のクオリティの低い言語だ。きわめてクオリティが低い。自分だったらこのクオリティでは絶対に世の中に出さないのだけど、それでも1000以上のスターがついている辺り出したもん勝ちなんだろうな、と思う。納得がいかない。</p>
+<p>きわめてクオリティが低いので<code>inspect</code>メソッドが実装されていない。けどなぜか配列に対する<code>to_s</code>だけは<code>inspect</code>相当になっていたのでそれを使ってQuineを書いた。よく分からない。ハッシュはだめだった。よく分からない。</p>
+<p>5秒触れただけでバグが3個は見つかるので少しくらいPull Requestを送るべきかもしれない。けどGo言語なんだよなぁ。</p>
+<p>244言語目のQuineでした。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

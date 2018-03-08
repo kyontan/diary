@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-10-23T00:00:00+00:00">2017/10/23</time></div><h1>HashidsをRubyやCrystalで書いた。</h1></div><div class="article-content"><script async src="//cdn.embedly.com/widgets/platform.js"></script>
+<h1>やったこと</h1>
+<h2>HashidsをRubyやCrystalで書いた</h2>
+<p><a href="http://hashids.org">Hashids</a>をRubyで書いてみた。実装が存在するのは知ってたのだけど、自分でアルゴリズムを確認したかったので。ちなみにJavaScript版を主に参考にした。どうもJavaScriptが公式実装っぽい感じがする。</p>
+<p>で、Rubyで書いたあとに思い付きでCrystalにも移植してみた。これが結構簡単にできたので面白かった。仮引数の括弧で囲ったりとか、ちょっとインスタンス変数を宣言を追加したりとか、それくらい。純粋にアルゴリズムだと意外と簡単なのかもしれない。</p>
+<h2>引数に代入したあとに引数からインスタンス変数の型を推論しないようにした</h2>
+<p><a href="https://github.com/crystal-lang/crystal/pull/5166" class="embedly-card">https://github.com/crystal-lang/crystal/pull/5166</a></p>
+<p>で、Hashidsを実装しているときに見つけたバグっぽい挙動を直しておいた。</p>
+<p>数行の変更で修正できなかったのでちょっと実装が面倒だったのだけど、悪くない感じになったと思う。さすがに各メソッド毎に<code>Hash</code>をアロケートはしたくなかったので‥‥。</p>
+<h1>思うこと</h1>
+<h2>Crystal-JPをやっていきたい</h2>
+<p>やっていきたい。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

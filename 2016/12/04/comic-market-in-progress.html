@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2016-12-04T00:00:00+00:00">2016/12/04</time></div><h1>コミケの進捗とか</h1></div><div class="article-content"><script async src="//platform.twitter.com/widgets.js"></script>
+<h1>今日やったこと</h1>
+<p>朝、目が覚めてからは三時間くらいはコンパイル時Cコンパイラで<code>Hello, world!</code>プログラムをコンパイルしようと試みていた。何せ時間がかかるのでプロセスをkillしないように心を平静に保つことが重要。</p>
+<p>ちなみにコンパイルしたコードはこんなもの。</p>
+<pre><code class="hljs language-c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">putchar</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+  <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* p = <span class="hljs-string">"Hello, world!\n"</span>;
+  <span class="hljs-keyword">for</span> (; *p; p++)
+    <span class="hljs-built_in">putchar</span>(*p);
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>これのコンパイルに二時間くらいかかったけど動いたときはそこそこ感動した。<code>#lnclude</code>が無いのはサポートしてないから。</p>
+<p>そのあとは<a href="http://www.saizeriya.co.jp/restaurant/shop_detail.php?cd=0706">代々木のサイゼ</a>でyや4869と集まってひたすらコミケの原稿を進捗をしていた。30Pちょっとくらいの本がどうにかできそうになってきてよかった。</p>
+<p>7時過ぎくらいに充電がなくなったのでサイゼを出て、なぜかてんやに行った。500円の天丼はアドが高いと思う。しかし冷たい麦茶を飲むために熱い麦茶を飲まなければいけない（コップがない）のは難易度は高いと思う。</p>
+<p>以上です。</p>
+<h1>決意</h1>
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">水曜か火曜辺りに一万円ちょっとくらいするキーボード買うぞー</p>&mdash; さっき作った@3日目東R-13a (@make_now_just) <a href="https://twitter.com/make_now_just/status/805423732525150208">2016年12月4日</a></blockquote>
+<h1>明日の予定</h1>
+<p>空いてる時間に気合いで原稿を印刷できる段階まで持っていきたい。</p>
+<p>ともかくやっていきたい。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

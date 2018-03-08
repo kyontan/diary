@@ -1,0 +1,21 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-06-24T00:00:00+00:00">2017/06/24</time></div><h1>かくしごと4巻を読んだ</h1></div><div class="article-content"><h1>やったこと</h1>
+<h2>かくしごと4巻を読んだ</h2>
+<p>かくしごと4巻がいつの間にか出ていたらしいので買ってきた。めっちゃ面白かった。</p>
+<p>カラーの部分にはかなり驚かされた。これからどう話が動いていくのか楽しみ。結末がある話だと書いていたのでここから話が進んでいくんだろうな。</p>
+<p>ともかくこれからも楽しみ。月刊マガジン買うべきだろうか‥‥。</p>
+<h2><a href="https://github.com/crystal-lang/crystal/pull/4617">#4617</a></h2>
+<p><code>Upgrade: websocket</code>だけじゃなくて<code>Upgrade: WebSocket</code>にも、もっと言えば大文字小文字関係なく<code>Upgrade</code>ヘッダの中身が<code>websocket</code>に一致したらWebSocketへのUpgradeリクエストと見做そうな、というPR。</p>
+<p>RFCに従えという話。<code>HTTP::Headers#includes_word?</code>は大文字小文字関係なく比較するので妥当だと思う。というか実際に<code>Upgrade: WebSocket</code>を送ってくる実装があるから悪い。よくこれまで問題にならなかったな。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

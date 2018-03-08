@@ -1,0 +1,38 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2016-12-25T00:00:00+00:00">2016/12/25</time></div><h1>Array#concatが和型を受け取れるようにしたり、あきゆめくくるを始めたり</h1></div><div class="article-content"><script async src="//cdn.embedly.com/widgets/platform.js"></script>
+<p>そういやエリナー・リグビー聴いてないな。</p>
+<h1>やったこと</h1>
+<h2><code>Array#concat</code>が和型を受け取れるようにした</h2>
+<p><a class="embedly-card" href="https://github.com/crystal-lang/crystal/pull/3775">Fix to concat a union of arrays by MakeNowJust · Pull Request #3775 · crystal-lang/crystal</a></p>
+<p>どういう意味なのかというと、例えばこういう配列があったとする。</p>
+<pre><code class="hljs language-crystal">arr = [<span class="hljs-number">1</span>, <span class="hljs-string">'2'</span>]
+</code></pre>
+<p>この配列の型は当然<code>Array(Int32 | Char)</code>だ。</p>
+<p>そして、こういう引数で<code>concat</code>する際には上手く動作する。</p>
+<pre><code class="hljs language-crystal"><span class="hljs-comment"># Array(Int32)</span>
+arr.concat([<span class="hljs-number">3</span>])
+<span class="hljs-comment"># Array(Char)</span>
+arr.concat([<span class="hljs-string">'4'</span>])
+<span class="hljs-comment"># Array(Int32 | Char)</span>
+arr.concat([<span class="hljs-number">5</span>, <span class="hljs-string">'6'</span>])
+</code></pre>
+<p>しかし、この場合には上手くコンパイルできない。</p>
+<pre><code class="hljs language-less"># <span class="hljs-selector-tag">Array</span>(Int32) | <span class="hljs-selector-tag">Array</span>(Char)
+<span class="hljs-selector-tag">arr</span><span class="hljs-selector-class">.concat</span>([<span class="hljs-number">7</span>] || [<span class="hljs-string">'7'</span>])
+</code></pre>
+<p>なぜかというと、内部で<code>Array(Int32) | Array(Char)</code>が<code>Pointer(Int32) | Pointer(Char)</code>になって、最終的に<code>Pointer(Void)</code>にキャストされようとするのだけど、ポインタの和型は任意のポインタにキャストできるわけではないのでエラーになる。これは挙動としては正しいので、どうにかして<code>concat</code>の引数が和型になるのを防がなければいけない。</p>
+<p>そのために、新しく<code>Array#concat_to</code>というメソッドを作って、<code>concat</code>の内部ではそれを呼ぶようにした。こうすることで和型の各型がばらされて呼び出される形になる。この方法を思い付いたときには結構感動した。</p>
+<h2>あきゆめくくるを始めた</h2>
+<p>買ってきたしやろうと思ってインストールした。普通に楽しいじゃん、という感じ。まだ1ルートも終わってないので何とも言えないけど。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

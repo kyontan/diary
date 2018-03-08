@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2018-02-24T00:00:00+00:00">2018/02/24</time></div><h1>Ruby25だった</h1></div><div class="article-content"><h1>やったこと</h1>
+<h2>Ruby25だった</h2>
+<p>朝目が覚めたら11時くらいだったのでその時点でまずかった。会場に間に合ってよかった。</p>
+<p>会場についたらなんか魔法瓶とか配っていた。神か。適当に色々と貰ってきた。</p>
+<p>発表を聞きながら<code>foo&#x26;.[bar]</code>みたいなのをパースできるようにするパッチを作る。Rubyのparse.yは難しすぎる。最終的には複合代入演算子以外実装できた。複合代入演算子は<code>NODE_OPASGN1</code>のフィールドが枯渇してるのでボクの一存では実装できなさそう。一方<code>NODE_ATTRSET</code>はなんか強引な実装なのでちょっと弄ればどうにかなった。</p>
+<p>途中から弄るのに熱中しすぎて話を聞くのを忘れた。Rubyの25年間の概要とか、Railsの話とか面白かった。</p>
+<p>mameさんとちょっと話せたりとかした。</p>
+<p>その後は懇親会へ。なんかきょんたんとかと話してた気がする。あと5t111111さん。</p>
+<p>最後にはMatzと少し話をすることができた。敵を認識したので見据えていきたい。うーん‥‥。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-07-18T00:00:00+00:00">2017/07/18</time></div><h1>bashcachedのテストを書いてる</h1></div><div class="article-content"><h1>やったこと</h1>
+<h2>続・bashcachedのテストを書いてる</h2>
+<p><code>set</code>, <code>add</code>, <code>replace</code>, <code>append</code>, <code>prepend</code>, <code>get</code>, <code>delete</code>, <code>touch</code>, <code>incr</code>, <code>decr</code>, <code>version</code>, <code>quit</code>のテストを書いた。テストを書いてる途中で<code>append</code>, <code>prepend</code>が<code>exptime</code>, <code>flags</code>を更新しない仕様に気付いて<code>bashcached</code>コマンドを修正したりもした。</p>
+<p>残るは<code>gets</code>, <code>cas</code>, <code>flush_all</code>かな。<code>gets</code>と<code>cas</code>のテストどうやって書こう？　あと複数クライアントからのテストが足りない気がする。</p>
+<p>それと、微妙にテストが安定しない。ときどき<code>localhost:25252</code>につなぐのに失敗したりする。原因がよく分からない。<code>socat</code>の問題な気がする。</p>
+<p>あとプロセスが死なないと無限に<code>kill</code>を<code>retry</code>してしまうけど、これは多分大丈夫だと信じたい。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-01-09T00:00:00+00:00">2017/01/09</time></div><h1>String#rindexをラビン-カープ法で実装したり、GOOD ON THE REELを聴いたり</h1></div><div class="article-content"><script async src="//platform.twitter.com/widgets.js"></script>
+<h1>やったこと</h1>
+<h2><code>String#rindex</code>をラビン-カープ法で実装した</h2>
+<p><code>String#index</code>ができたんだから<code>rindex</code>もできるだろう的な。速くするのが難しい。</p>
+<p>V8の実装を確認したり（後ろから文字列を舐めていって、最初の文字が同じだったら実際の比較を行なうようになってた。<code>String.prototype.indexOf</code>は文字列の長さによって色々な戦略が取られるようになっていた。<code>memchr</code>的なので最初の文字だけ探して、実際の比較を行なって、何度かそれに失敗したらBMH法に移行する、みたいなのが面白かった）、Rustの実装の知見を得たり（Two Way Algorithmというやつらしい。詳細はよく分かっていない）した。</p>
+<p>あと、多分SSE 4.2で追加された文字列処理SIMDを使うのが一番速いんだろうなぁ、とも思うんだけど、それだとUTF-8の文字数カウントできないし‥‥。</p>
+<h2>GOOD ON THE REELを聴いた</h2>
+<p>GOOD ON THE REELというバンドに出会った。</p>
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">GOOD ON THE REEL / 存在証明書 Music Video <a href="https://t.co/nvBcltPR9p">https://t.co/nvBcltPR9p</a> <a href="https://twitter.com/YouTube">@YouTube</a>さんから</p>&mdash; さっき作った (@make_now_just) <a href="https://twitter.com/make_now_just/status/818449277315739649">2017年1月9日</a></blockquote>
+<p>どうして出会ったのかはよく覚えていない。なんかツイートで流れてきたような気がする。</p>
+<p>ツイートは「存在証明書」だけど「素晴らしき今日の始まり」とか「雨天決行」とか、かなり良い。</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0hazuIKucbo" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TgwZ7xveZls" frameborder="0" allowfullscreen></iframe>
+<p>もっと色々なバンドを知っていきたい。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

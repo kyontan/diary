@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-11-13T00:00:00+00:00">2017/11/13</time></div><h1>ET NOIRを公開した</h1></div><div class="article-content"><script async src="//cdn.embedly.com/widgets/platform.js"></script>
+<h1>やったこと</h1>
+<h2>MochiでQuineを書いた</h2>
+<p><a href="https://github.com/i2y/mochi">Mochi</a>というプログラミング言語がある。特徴としてはPythonライクな文法で、かつPythonで書かれていてPythonに変換されて実行される。というとほぼPythonな気がするけど、実体としてはPythonとClojureの悪魔合体だと思う。ドキュメントには書いてないけど、明らかにClojureを意識してる。</p>
+<p>Quineは適当に書いた。そんなに思い入れがない。なんかパイプ演算子のあとに無名関数を置くとバグるので、仕方なく二行にした。</p>
+<p><a href="https://github.com/MakeNowJust/quine/commit/fec4c78b47161779c8c586b49840dc18a07c31e6" class="embedly-card">https://github.com/MakeNowJust/quine/commit/fec4c78b47161779c8c586b49840dc18a07c31e6</a></p>
+<h2>LeanでQuineを書いた</h2>
+<p><a href="https://leanprover.github.io">Lean</a>という定理証明支援系がある。Microsoft Researchが開発している。他の定理証明支援系と何が違うのか聞かれると上手く説明できないのだけど、なんか<code>io</code>とかあるので普通にプログラムが書ける。<code>io.get_environment</code>とかあるのでCGIが書ける。やったね。</p>
+<p>というわけでQuineを書いた。</p>
+<p><a href="https://github.com/MakeNowJust/quine/commit/6d81b6852641d857a95b57c588fcf26a167003f1" class="embedly-card">https://github.com/MakeNowJust/quine/commit/6d81b6852641d857a95b57c588fcf26a167003f1</a></p>
+<p>できることならLeanを勉強する時間が欲しい。面白そう。</p>
+<p>‥‥って昔も言ってた気がする。</p>
+<h2><a href="https://github.com/MakeNowJust/heredoc">MakeNowJust/heredoc</a>: 長さ0の文字列を渡したときにpanicにならないようにした</h2>
+<p>ふとコードを眺めていたら見つけたので。</p>
+<p>一応k8sに使われているので気にしてはいる。</p>
+<h2>ET NOIRを公開した</h2>
+<p><a href="https://github.com/MakeNowJust/noir/pull/19" class="embedly-card">https://github.com/MakeNowJust/noir/pull/19</a></p>
+<p>まだテストを書いてないけど。</p>
+<p>悪くない感じになったと思う。</p>
+<h2>マスト丼に<code>/kys</code>コマンドを追加した</h2>
+<p>前に流行ったズンドコするやつ。500文字ギリギリまで試行するようにしてるけど、そこまで到達できる気がしない。</p>
+<p>明日にでもCW付けて投稿するようにしたい。邪魔すぎる。</p>
+<h2>CrystalにPRを二つ投げた</h2>
+<p><a href="https://github.com/crystal-lang/crystal/pull/5284" class="embedly-card">https://github.com/crystal-lang/crystal/pull/5284</a></p>
+<p><a href="https://github.com/crystal-lang/crystal/pull/5288" class="embedly-card">https://github.com/crystal-lang/crystal/pull/5288</a></p>
+<p>色々思うところはあるんだけど書くのが面倒になってきたので察して。</p>
+<h2><code>MakeNowJust-Sandbox</code>を<code>MakeNowJust-labo</code>にした</h2>
+<p><a href="https://github.com/MakeNowJust-Labo" class="embedly-card">https://github.com/MakeNowJust-Labo</a></p>
+<p>あと<a href="https://github.com/hone/mruby-cli">mruby-cli</a>の使い方を調べたりしていた。その成果とかも置かれている。サンドボックスと言ってしまうと自分は使わないので、laboと言っていきたい。</p>
+<h1>思うところ</h1>
+<p>今日はどうしてこんなに色々なことをしたのだろうという気持ちになっている。疲れた。でもOccultic; Nineやりたい‥‥。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2017-07-15T00:00:00+00:00">2017/07/15</time></div><h1>引きこもりオタクなのでエロゲなどしていた</h1></div><div class="article-content"><h1>やったこと</h1>
+<h2>エロゲをしていた</h2>
+<p>せっかく買ってきたし積むのもアレだなぁと思って木曜辺りから春音アリス＊グラムをやっていた。とくに今日は丸一日やっていたがまだ5章。もしかしたらもう5章なのかもしれないがともかくEDを一度を見ていないのでよく分からない。</p>
+<p>つまんなくはないけどすごく面白いってほどでもない気がする。笠倉かわいいよ笠倉‥‥。しかし彼女はサブヒロインなのだ。</p>
+<h2>マスト丼の更新をした</h2>
+<p>めっっちゃがんばった。すごい大変だった。ただ<code>git pull</code>をしただけだとエラーが出まくる。<code>rake db:migrate</code>でつっかかったので色々調べると<code>rake mastodon:maintenance:prepare_for_foreign_keys</code>をやる必要があったらしい。<code>v1.4.2</code>からだそうな。そうしないと<code>rails_fk_...</code>なんちゃらという外部キー制約の名前が一定にならなくてマイグレーションでつまずく、と。<a href="https://github.com/tootsuite/mastodon/issues/3788#issuecomment-308913887">#3778 (comment)</a>に感謝。</p>
+<p>それと<code>rake assets:precompile</code>が通らなくて焦った。これはどうも<code>master</code>のバグを踏んだっぽい。<a href="https://github.com/tootsuite/mastodon/pull/4209">#4209</a>なのだけど、もうマージされてるのか‥‥。当時はマージされてなかったので、仕方なく<code>docker exec web sh</code>してコンテナに入って<code>yarn add babel-plugin-preval</code>とかして無理矢理タスクが動くようにした。まあ妥当な方法だと思う。</p>
+<h2><a href="https://github.com/crystal-lang/crystal/pull/4688">#4688</a></h2>
+<p>なんとなく関わってしまったので眺めている。</p>
+<p>で、気になったのが、そもそも同じキーのある<code>NamedTuple</code>をどうして同時にスプラットできないのか、ってところ。具体的には、</p>
+<pre><code class="hljs language-crystal">foo = {
+  <span class="hljs-symbol">a:</span> <span class="hljs-number">1</span>,
+  <span class="hljs-symbol">b:</span> <span class="hljs-number">2</span>,
+  <span class="hljs-symbol">c:</span> <span class="hljs-number">3</span>,
+}
+bar = {
+  <span class="hljs-symbol">a:</span> <span class="hljs-number">4</span>,
+  <span class="hljs-symbol">d:</span> <span class="hljs-number">5</span>,
+}
+
+p **foo, **bar
+</code></pre>
+<p>みたいなのが動作しない。もちろんこれはRubyでは動作する。スプラットはその中身が何だか分からないものに対して行われるから、複数あった場合はあとから上書きで動作するべきだと思う。そういう風に動くべきだと思うのだけど、どうもその点は議論されていないらしい。のでがんばって実装してる。実装してからRFC issueを立てたい。そもそもaryが面倒だから実装しなかった感があるので。</p>
+<p>現状は型推論は直したのだけど、コード生成が上手くいってない。どこを直したらいいのかさっぱり。なにかが間違っているらしくバックトレースが上手く動いてないし。</p>
+<p>あと、これを実装している過程で分かったこととして、パース時に検出される<code>NamedTuple</code>のキー重複は<code>duplicated key</code>と過去分詞になっているのだけど、それ以外の例えば上の例のようなときに検出されるエラーは<code>duplicate key</code>と動詞になる。そこでエラーメッセージ違うのどうなんだよ‥‥。</p>
+<h2>思うこと</h2>
+<p>エロゲばっかでなんもしてない一日のつもりだったけど意外と色々してたなぁ、と。昼飯はジャンクガレッジの油そば大盛り全増しニンニク抜きアブラダブルを食べてたし。</p>
+<p>もう少しちゃんと日記を付けるべきなんだよなぁ。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>

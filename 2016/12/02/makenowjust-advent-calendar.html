@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$ make now just</title><link rel="stylesheet" href="https://makenowjust.github.io/diary/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"></head><body><header><h1><a href="https://makenowjust.github.io/diary/">$ make now just</a></h1></header><main><article><div class="article-header"><div class="time"><time pubdate datetime="2016-12-02T00:00:00+00:00">2016/12/02</time></div><h1>MakeNowJustとMakeNowJust Advent Calendar 2016について</h1></div><div class="article-content"><script async src="//cdn.embedly.com/widgets/platform.js"></script>
+<script async src="//cdn.embedly.com/widgets/platform.js"></script>
+<p>昨日雑に1日目を終えてしまったので2日目はちゃんと書きたい。
+というわけでまずは、MakeNowJust Advent Calendar 2016について。</p>
+<h1><a class="embedly-card" data-card-width="100%" data-card-controls="0" href="http://www.adventar.org/calendars/1906">MakeNowJust Advent Calendar 2016</a></h1>
+<p>完全に悪ノリで作ったAdvent Calendarです。</p>
+<p>なんか18日に4869が入ってますし、他の人もじゃんじゃん入れちゃってください。お願いします。じゃないとボクの負担が大きすぎる‥‥。</p>
+<p>といっても二年前に（もう二年前なのか‥‥）Quine Advent Calendar 2014を半年くらい続けた身としては余裕じゃねーのと言われれば、それもそうなのですが。</p>
+<h1>MakeNowJustについて</h1>
+<p>ボクについて簡単に自己紹介しておきます。</p>
+<p>都内の大学に通う大学生です。文系です。プログラミング言語とか形式言語とかが好きらしいです。</p>
+<p>Crystalにコントリビュートしています。最近日本で一番Crystalにコントリビュートした人になりました。やったね。</p>
+<p>基本的に他人のやらなさそうなことをやることが多いです。</p>
+<p>適当ですがそんな感じ。</p>
+<h1>今日やったこと</h1>
+<h2><code>crystal eval</code>とか<code>crystal spec</code>に<code>--no-color</code>オプションを指定できるようにした</h2>
+<p><a href="https://github.com/crystal-lang/crystal/pull/3621" title="Add missing --no-color option to spec and eval command by MakeNowJust · Pull Request #3621 · crystal-lang/crystal" class="embedly-card">Add missing --no-color option to spec and eval command by MakeNowJust · Pull Request #3621 · crystal-lang/crystal</a></p>
+<p>役に立つのかというとちょっと自信がない。</p>
+<p>しかしこれは次のPull Requestへの伏線なのだ（本当です）。</p>
+<h2><code>crystal docs</code>にコンパイラオプションの一部を指定できるようにした</h2>
+<p><a href="https://github.com/crystal-lang/crystal/pull/3622" title="Accept to pass compiler options to crystal docs by MakeNowJust · Pull Request #3622 · crystal-lang/crystal" class="embedly-card">Accept to pass compiler options to crystal docs by MakeNowJust · Pull Request #3622 · crystal-lang/crystal</a></p>
+<p>上のPull RequestはこのPull Requestを作ってるときに思い付いたもの。基本的にソースを弄ってるといくつか変更点ができてしまって、複数のPull Requestができるのが普通だと思うのですが他の人はそうではないのだろうか。</p>
+<p>実はこのPull Requestもさらに続くものがある予定なのだけど、それはほぼまったく手を着けていないのでまだまだ公開できそうにない。</p>
+<p>それと、このPull Requestに対して「<code>--stats</code>オプションって<code>crystal docs</code>に対しても使えるんじゃない？」って言われたのだけど、これには結構頭を抱えてる。<code>--stats</code>というのはコンパイル時の各フェーズにかかった時間とメモリ消費量を表示するオプションで、それって<code>docs</code>に限らず大体のコマンドに使えるような気がするけど、コンパイラの他のコマンドではバイナリを生成しないものは<code>--stats</code>コマンドが使えなくなっているので。色々模索していくつもり。</p>
+<h1>明日やりたいこと</h1>
+<ul>
+<li>ともかくアニメを観る</li>
+<li>とくにクビキリサイクルの2話を観たい</li>
+<li>コミケの原稿のチェックと版組み</li>
+<li>ELVMのCrystalターゲットの公開（さっさと<code>README.md</code>を追記しろ）</li>
+</ul>
+<p>明日も忙しい。</p>
+<p>あとこれは明日以降の予定</p>
+<ul>
+<li>この日記の改善（色々とやることがある）</li>
+</ul>
+<hr>
+<p>というわけでMakeNowJust Advent Calendar 2016の2日目でした。</p></div><div class="article-footer"><div class="author">written by <a href="https://github.com/MakeNowJust">TSUYUSATO "MakeNowJust" Kitsune</a></div></div><div id="disqus_thread"><script>//<![CDATA[
+(function () {
+  window.disqus_config = function () {
+    var e = document.getElementById('disqus_thread')
+    this.page.url = e.getAttribute('data-url')
+    this.page.identifier = e.getAttribute('data-identifier')
+  }
+
+  var d = document, s = d.createElement('script'), t = d.head || d.body
+  s.src = '//make-now-just.disqus.com/embed.js'
+  s.setAttribute('data-timestamp', Date.now())
+  t.appendChild(s)
+})()
+//]]></script></div></article></main><footer><small>&copy; 2016-2017 TSUYUSATO "MakeNowJust" Kitsune</small></footer></body></html>
